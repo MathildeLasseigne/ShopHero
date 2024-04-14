@@ -14,6 +14,8 @@ public class ForgingMinigameController : MonoBehaviour
     [SerializeField] DialogueController dialogueController;
     [SerializeField] GameObject dialogueObject;
 
+    [SerializeField] GameObject endGameObject;
+
     Character character;
 
     private  enum Step { Reciping, Forging, EndEvent};
@@ -64,9 +66,9 @@ public class ForgingMinigameController : MonoBehaviour
 
     {
         dialogueController.Init();
-        dialogueController.SetEntrance(hasEntrance: true);
+        //dialogueController.SetEntrance(hasEntrance: true);
         ShowDialogue();
-        dialogueController.BeginDialogue(false);
+        dialogueController.BeginDialogue();
 
         ShowReceipingTable() ;
         inventoryController.Init();
@@ -94,6 +96,7 @@ public class ForgingMinigameController : MonoBehaviour
     IEnumerator StartEndEvent()
     {
         HideForgingTable();
+        HideDialogue();
         yield return new WaitForSeconds(2); //Time of anim
 
         ShowEndEvent();
@@ -137,12 +140,12 @@ public class ForgingMinigameController : MonoBehaviour
 
     void ShowEndEvent()
     {
-
+        endGameObject?.SetActive(true);
     }
 
     void HideEndEvent()
     {
-
+        endGameObject?.SetActive(false);
     }
 
     void ShowDialogue()
@@ -164,7 +167,7 @@ public class ForgingMinigameController : MonoBehaviour
         {
             MainGameManager.Instance.AddToScore(DataDetail.SCORE_INCREASE_DOUBLE);
         }
-        MainGameManager.Instance.SoundBoard.SourceTappingGame.PlayOneShot(MainGameManager.Instance.SoundBoard.ClipTileTaped);
+        //MainGameManager.Instance.SoundBoard.SourceTappingGame.PlayOneShot(MainGameManager.Instance.SoundBoard.ClipTileTaped);
     }
 
 

@@ -20,6 +20,10 @@ public class MainGameManager : MonoBehaviour
 
 
     [SerializeField] private int currentScore = 0;
+
+    [SerializeField] GameObject Intro;
+    [SerializeField] Animator animatorLogo;
+
     private void Awake()
     {
         Instance = this;
@@ -30,6 +34,17 @@ public class MainGameManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Start main");
+        StartCoroutine(StartGame());
+    }
+
+    IEnumerator StartGame()
+    {
+        if (animatorLogo)
+            animatorLogo.SetTrigger("Go");
+        yield return new WaitForSeconds(4f);
+        Intro.SetActive(false);
+        yield return new WaitForSeconds(3f);
+
         forgingMinigameController.Init();
         forgingMinigameController.StartMinigame(character);
     }
