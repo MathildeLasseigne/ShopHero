@@ -2,7 +2,6 @@ namespace MidiFileTests
 {
     using System;
 
-    using MidiParser;
 
     public static class Program
     {

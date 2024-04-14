@@ -4,7 +4,6 @@ using UnityEngine;
 
 using System;
 
-using MidiParser;
 
 
 public class testMidi : MonoBehaviour
