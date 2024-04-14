@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4902939385831725430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885833755902427404}
+  - component: {fileID: 2300543529802270852}
+  m_Layer: 0
+  m_Name: Character
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &885833755902427404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4902939385831725430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2300543529802270852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4902939385831725430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94b35c6eea840f49a42f66f3df01414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CharacterSprite: {fileID: 2800000, guid: f08e5a95b4a577f43b50ae1ded2e5163, type: 3}
+  DialoguesList:
+  - text: "Salue, humble marchand ! J'aurai besoin de votre meilleur lame c\xE9ans
+      !"
+    duration: 4
+  - text: "Mazette ! Vous \xEAtes la source de ces canifs mal affut\xE9s ?!"
+    duration: 2
+  - text: "Comment puis-je, moi, Lucien de Tayote, Archimage de l'Acad\xE9mie solaire,
+      3\xE8me Garant des secrets arcaniques, 11\xE8me porteur de lumi\xE8res et membre
+      du Conseil des Acad\xE9mies Royales, me d\xE9fendre face aux cr\xE9atures de
+      l'Ouest ?"
+    duration: 5
+  - text: "\xC0 la bonne hure. Je dois vous \xE9duquez proprement."
+    duration: 3
