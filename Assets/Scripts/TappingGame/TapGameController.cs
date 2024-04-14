@@ -159,7 +159,7 @@ public class TapGameController : MonoBehaviour
 
     }
 
-    void StopGame()
+    public void StopGame()
     {
         start = false;
     }

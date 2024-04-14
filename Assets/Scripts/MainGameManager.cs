@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,10 +11,11 @@ public class MainGameManager : MonoBehaviour
 
     public SoundBoard SoundBoard;
 
+    public ForgingMinigameController forgingMinigameController;
+
+    public Data DynamicData = new Data();
+
     [SerializeField] TextMeshProUGUI textScore;
-
-
-    [SerializeField] List<TapGameController> gameControllersList = new List<TapGameController>();
 
 
     [SerializeField] private int currentScore = 0;
@@ -27,13 +29,7 @@ public class MainGameManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Start main");
-        foreach(TapGameController controller in gameControllersList)
-        {
-            if (controller.gameObject.active == false)
-                continue;
-            controller.Init();
-            controller.StartGame();
-        }
+        forgingMinigameController.StartMinigame();
     }
 
     public void AddToScore(int addition)
@@ -47,5 +43,22 @@ public class MainGameManager : MonoBehaviour
             
     }
 
+    public List<Ingredient> GetAllOwnedIngredients()
+    {
+        List<Ingredient> inventory = new List<Ingredient>();
+        foreach (Ingredient ingredient in DynamicData.AllIngredients)
+        {
+            if(ingredient.nbInInventory >  0)
+                inventory.Add(ingredient);
+        }
+        return inventory;
+    }
+
+
+    [Serializable]
+    public class Data
+    {
+        public List<Ingredient> AllIngredients;
+    }
 
 }

@@ -6,16 +6,40 @@ public class ForgingMinigameController : MonoBehaviour
 {
 
     [SerializeField] List<TapGameController> gameControllersList = new List<TapGameController>();
+    [SerializeField] GameObject forgingTable;
 
-    void StartMinigame()
+    [SerializeField] RecipeInventoryController inventoryController;
+    [SerializeField] GameObject recipeTable;
+
+
+
+
+
+    public void StartMinigame()
+    {
+        StartReciping();
+    }
+
+    void StartReciping()
+    {
+        inventoryController.Init();
+    }
+
+    void StartForging()
     {
         foreach (TapGameController controller in gameControllersList)
         {
-            if (controller.gameObject.active == false)
+            if (controller.gameObject.activeInHierarchy == false)
                 continue;
             controller.Init();
             controller.StartGame();
+            controller.SuscribeToTileTouchEvent(TileTouchedMinigame);
         }
+    }
+
+    void ShowForgingTable()
+    {
+        forgingTable?.SetActive(true);
     }
 
 
