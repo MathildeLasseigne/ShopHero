@@ -13,6 +13,8 @@ public class DialogueController : MonoBehaviour
     [SerializeField] Animator characterAnimator;
     [SerializeField] RawImage characterImage;
 
+    [SerializeField] CanvasGroup dialogueCanvasGroup;
+
     private Action DialogueFinishedEvent;
 
 
@@ -34,13 +36,16 @@ public class DialogueController : MonoBehaviour
     public void SetCharacter(Character character)
     {
         this.character = character;
-        characterImage.texture = character._CharacterSprite.textureFromSprite();
+        //characterImage.texture = character._CharacterSprite.textureFromSprite();
     }
 
-    public void SetEntrance(bool hasEntrance, bool hasExit)
+    public void SetEntrance(bool hasEntrance = false, bool hasExit = false)
     {
         this.hasEntrance = hasEntrance;
         this.hasExit = hasExit;
+        if(hasEntrance) {
+            characterImage.color = new Color(characterImage.color.r, characterImage.color.g, characterImage.color.b, 0);
+        }
     }
 
     public void BeginDialogue(bool informEnd = true)
@@ -57,6 +62,8 @@ public class DialogueController : MonoBehaviour
 
     IEnumerator MakeDialogue()
     {
+        characterImage.texture = character._CharacterSprite;
+
         if (hasEntrance)
             CharacterEnter();
 
@@ -74,12 +81,23 @@ public class DialogueController : MonoBehaviour
 
     private void CharacterEnter()
     {
+        characterAnimator.SetTrigger("Enter");
     }
 
 
     public void SuscribeToDialogueFinishedEvent(Action callback)
     {
         DialogueFinishedEvent += callback;
+    }
+
+    public void Hide()
+    {
+        dialogueCanvasGroup.alpha = 0f;
+    }
+
+    public void Show()
+    {
+        dialogueCanvasGroup.alpha = 1f;
     }
 
 }

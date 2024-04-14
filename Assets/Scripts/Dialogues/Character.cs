@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public Sprite _CharacterSprite;
+    public Texture2D _CharacterSprite;
 
     public List<Dialogue> DialoguesList = new List<Dialogue>();
 
@@ -13,12 +13,14 @@ public class Character : MonoBehaviour
 
     public Dialogue GetNextDialogue()
     {
-        return DialoguesList[_nextDialogueindex++];
+        Dialogue dialogue = DialoguesList[_nextDialogueindex];
+        _nextDialogueindex += 1;
+        return dialogue;
     }
 
     public bool hasNextDialogue()
     {
-        return _nextDialogueindex < DialoguesList.Count -1;
+        return _nextDialogueindex < DialoguesList.Count;
     }
     // Start is called before the first frame update
     void Start()

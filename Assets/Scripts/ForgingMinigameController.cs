@@ -12,6 +12,7 @@ public class ForgingMinigameController : MonoBehaviour
     [SerializeField] GameObject recipeTable;
 
     [SerializeField] DialogueController dialogueController;
+    [SerializeField] GameObject dialogueObject;
 
     Character character;
 
@@ -63,11 +64,13 @@ public class ForgingMinigameController : MonoBehaviour
 
     {
         dialogueController.Init();
+        dialogueController.SetEntrance(hasEntrance: true);
+        ShowDialogue();
         dialogueController.BeginDialogue(false);
 
         ShowReceipingTable() ;
-        yield return new WaitForSeconds(2); //Time of anim
         inventoryController.Init();
+        yield return new WaitForSeconds(2); //Time of anim
     }
 
     IEnumerator StartForging()
@@ -140,6 +143,16 @@ public class ForgingMinigameController : MonoBehaviour
     void HideEndEvent()
     {
 
+    }
+
+    void ShowDialogue()
+    {
+        dialogueController.Show();
+    }
+
+    void HideDialogue()
+    {
+        dialogueController.Hide();
     }
 
     void TileTouchedMinigame(bool isDoublePoint)
