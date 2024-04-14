@@ -63,7 +63,7 @@ public class TapGameController : MonoBehaviour
         if (start)
         {
 
-    #region MOVE
+            #region MOVE
 
             foreach (var tileDyn in tilesList)
             {
@@ -72,7 +72,7 @@ public class TapGameController : MonoBehaviour
             }
             #endregion
 
-            if(!waitingForLongTile)
+            if (!waitingForLongTile)
             {
                 if (Input.GetKeyDown(TappingKey))
                 {
@@ -84,7 +84,8 @@ public class TapGameController : MonoBehaviour
                     else
                         currentCollisionTiles.Clear();
                 }
-            } else
+            }
+            else
             {
                 if (Input.GetKeyDown(TappingKey))
                 {
@@ -111,7 +112,7 @@ public class TapGameController : MonoBehaviour
                     longTileInProgress = false;
                 }
             }
-            
+
 
 
         }
@@ -252,10 +253,10 @@ public class TapGameController : MonoBehaviour
             waitingForLongTile = wait;
             currentCollisionTiles.Add(tile);
         }
-        else if(! tileTapped)
+        else if (!tileTapped)
         {
             TileMissed();
-            if(tile.isLong && tile.isEnd)
+            if (tile.isLong && tile.isEnd)
             {
                 Debug.Log("Missed long tile end");
                 waitingForLongTile = false; //mark end of long tile in case of miss
@@ -297,7 +298,8 @@ public class TapGameController : MonoBehaviour
             tileTouchedEvent.Invoke(false);
             MainGameManager.Instance.AddToScore(DataDetail.SCORE_INCREASE_SIMPLE);
             currentCollisionTiles.Clear(); // Remove from current tile but keep moving to the right
-        } else
+        }
+        else
         {
             tileTouchedEvent.Invoke(true);
             MainGameManager.Instance.AddToScore(DataDetail.SCORE_INCREASE_DOUBLE);
@@ -313,7 +315,7 @@ public class TapGameController : MonoBehaviour
 
     private void CleanGoodTiles()
     {
-        foreach(Tile tile in currentCollisionTiles)
+        foreach (Tile tile in currentCollisionTiles)
         {
             if (tile == null)
                 Debug.Log("debug");
@@ -338,4 +340,25 @@ public class TapGameController : MonoBehaviour
         mustCollectGarbage = false;
     }
 
+    /*List<float> getTileTimeFromMidi()
+    {
+        List<float> ticks = new List<float>();
+        var midiFile = new MidiFile("path_to_midi_file.mid");
+        int BPM = midiFile.TicksPerQuarterNote;
+        foreach (var track in midiFile.Tracks)
+        {
+            var c = 0;
+            foreach (var midiEvent in track.MidiEvents)
+            {
+
+                if (midiEvent.MidiEventType == MidiEventType.NoteOn)
+                {
+                    var time = midiEvent.Time;
+                    c = c + time;
+                    // Ici, créer une liste des c après boucle puis faire apparaître notes en fonction des c
+                }
+
+            }
+        }
+    }*/
 }

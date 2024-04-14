@@ -41,12 +41,13 @@ public class MainGameManager : MonoBehaviour
     {
         if (animatorLogo)
             animatorLogo.SetTrigger("Go");
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         Intro.SetActive(false);
         yield return new WaitForSeconds(3f);
 
         forgingMinigameController.Init();
         forgingMinigameController.StartMinigame(character);
+        SoundBoard.SourceTappingGame.Play();
     }
 
     public void AddToScore(int addition)
@@ -78,7 +79,7 @@ public class MainGameManager : MonoBehaviour
 
     public void NextStep()
     {
-        forgingMinigameController.NextStep();
+        //forgingMinigameController.NextStep();
     }
 
 

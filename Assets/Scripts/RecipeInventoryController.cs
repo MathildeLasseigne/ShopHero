@@ -22,7 +22,7 @@ public class RecipeInventoryController : MonoBehaviour
 
     private List<Ingredient> currentIngredients = new List<Ingredient>();
 
-    private Action DialogueFinishedEvent;
+    private Action RecipeFinishedEvent;
 
     public void Init()
     {
@@ -129,12 +129,12 @@ public class RecipeInventoryController : MonoBehaviour
 
     public void OnClickEndRecipeDescription()
     {
-        DialogueFinishedEvent?.Invoke();
+        RecipeFinishedEvent?.Invoke();
     }
 
-    public void SuscribeToDialogueFinishedEvent(Action callback)
+    public void SuscribeToRecipeFinishedEvent(Action callback)
     {
-        DialogueFinishedEvent += callback;
+        RecipeFinishedEvent += callback;
     }
 
 

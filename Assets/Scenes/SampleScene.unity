@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &75717511
+--- !u!1 &52960157
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,22 +131,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 75717512}
-  - component: {fileID: 75717513}
+  - component: {fileID: 52960158}
+  - component: {fileID: 52960159}
   m_Layer: 0
-  m_Name: Ing (34)
+  m_Name: Ing (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &75717512
+--- !u!4 &52960158
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75717511}
+  m_GameObject: {fileID: 52960157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -155,30 +155,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &75717513
+--- !u!114 &52960159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75717511}
+  m_GameObject: {fileID: 52960157}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
+    rougeValue: 1
     bleuValue: 0
-    jauneValue: 0
+    jauneValue: 3
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 2
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 5
+  recipeSprite: {fileID: 21300000, guid: 9ddbb38b451d07e498d99c269d8106f2, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
---- !u!1 &79139385
+--- !u!1 &80834751
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,22 +186,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 79139386}
-  - component: {fileID: 79139387}
+  - component: {fileID: 80834752}
+  - component: {fileID: 80834753}
   m_Layer: 0
-  m_Name: Ing (16)
+  m_Name: Ing (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &79139386
+--- !u!4 &80834752
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79139385}
+  m_GameObject: {fileID: 80834751}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -210,13 +210,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &79139387
+--- !u!114 &80834753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79139385}
+  m_GameObject: {fileID: 80834751}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
@@ -225,12 +225,12 @@ MonoBehaviour:
   ingredientValue:
     rougeValue: 0
     bleuValue: 0
-    jauneValue: 0
+    jauneValue: 6
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 5
+  recipeSprite: {fileID: 21300000, guid: 4c143832e2dbf6b4d8f5d934572a3716, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1 &104085646
@@ -356,6 +356,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94b35c6eea840f49a42f66f3df01414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &180229457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 180229458}
+  - component: {fileID: 180229459}
+  m_Layer: 0
+  m_Name: Ing (17)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &180229458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180229457}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1382679991}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &180229459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180229457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientValue:
+    rougeValue: 3
+    bleuValue: 0
+    jauneValue: 0
+  nameIngredient: 
+  description: 
+  goldValue: 0
+  nbInInventory: 5
+  recipeSprite: {fileID: 21300000, guid: 9ddbb38b451d07e498d99c269d8106f2, type: 3}
+  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
+  merchandSprite: {fileID: 0}
 --- !u!1 &207358837
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +486,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207358837}
   m_CullTransparentMesh: 1
---- !u!1 &228646892
+--- !u!1 &217302991
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -439,8 +494,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 228646893}
-  - component: {fileID: 228646894}
+  - component: {fileID: 217302992}
+  - component: {fileID: 217302993}
   m_Layer: 0
   m_Name: Ing (2)
   m_TagString: Untagged
@@ -448,13 +503,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &228646893
+--- !u!4 &217302992
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228646892}
+  m_GameObject: {fileID: 217302991}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -463,27 +518,82 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &228646894
+--- !u!114 &217302993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228646892}
+  m_GameObject: {fileID: 217302991}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 1
+    rougeValue: 0
     bleuValue: 0
-    jauneValue: 8
+    jauneValue: 3
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 2
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 5
+  recipeSprite: {fileID: 21300000, guid: 4c143832e2dbf6b4d8f5d934572a3716, type: 3}
+  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
+  merchandSprite: {fileID: 0}
+--- !u!1 &218273545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218273546}
+  - component: {fileID: 218273547}
+  m_Layer: 0
+  m_Name: Ing (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218273546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218273545}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1382679991}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &218273547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218273545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientValue:
+    rougeValue: 2
+    bleuValue: 0
+    jauneValue: 0
+  nameIngredient: 
+  description: 
+  goldValue: 0
+  nbInInventory: 3
+  recipeSprite: {fileID: 21300000, guid: 9ddbb38b451d07e498d99c269d8106f2, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1 &236578867
@@ -544,116 +654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7923eba2670962940b6976d8be3ccfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &264950371
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 264950372}
-  - component: {fileID: 264950373}
-  m_Layer: 0
-  m_Name: Ing (17)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &264950372
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264950371}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &264950373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264950371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 5
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &275861960
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 275861961}
-  - component: {fileID: 275861962}
-  m_Layer: 0
-  m_Name: Ing (32)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &275861961
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275861960}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &275861962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275861960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 1
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 1
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &318805670 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1175422708156087447, guid: 8776320a59565d243ac6b69ae3b73959, type: 3}
@@ -675,6 +675,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327c0db2263fb5e4aadaeb1f3456cc10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &360797887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360797888}
+  - component: {fileID: 360797889}
+  m_Layer: 0
+  m_Name: Ing (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &360797888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360797887}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1382679991}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &360797889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360797887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientValue:
+    rougeValue: 0
+    bleuValue: 0
+    jauneValue: 2
+  nameIngredient: 
+  description: 
+  goldValue: 0
+  nbInInventory: 3
+  recipeSprite: {fileID: 21300000, guid: 4c143832e2dbf6b4d8f5d934572a3716, type: 3}
+  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
+  merchandSprite: {fileID: 0}
 --- !u!114 &366643010 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1593413675203109714, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
@@ -686,61 +741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7923eba2670962940b6976d8be3ccfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &392763656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 392763657}
-  - component: {fileID: 392763658}
-  m_Layer: 0
-  m_Name: Ing (36)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &392763657
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392763656}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &392763658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392763656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 4
-    bleuValue: 0
-    jauneValue: 2
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 5
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!4 &407094372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6491664395346741751, guid: ac1b932d763643d4e81bffc9a4446a88, type: 3}
@@ -778,61 +778,6 @@ Transform:
   - {fileID: 8830550356636425105}
   m_Father: {fileID: 1137217693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &444935795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 444935796}
-  - component: {fileID: 444935797}
-  m_Layer: 0
-  m_Name: Ing (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &444935796
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444935795}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &444935797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444935795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &448177360
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,61 +912,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448177360}
   m_CullTransparentMesh: 1
---- !u!1 &499459172
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 499459173}
-  - component: {fileID: 499459174}
-  m_Layer: 0
-  m_Name: Ing (14)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &499459173
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499459172}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &499459174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499459172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,61 +1014,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1509601207218599813, guid: 4af8dc7e1c06b284bbc431cd14b24111, type: 3}
   m_PrefabInstance: {fileID: 7025147254638179204}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &573922641
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 573922642}
-  - component: {fileID: 573922643}
-  m_Layer: 0
-  m_Name: Ing (25)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &573922642
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573922641}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &573922643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573922641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &585397823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,61 +1148,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585397823}
   m_CullTransparentMesh: 1
---- !u!1 &601073580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 601073581}
-  - component: {fileID: 601073582}
-  m_Layer: 0
-  m_Name: Ing (15)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &601073581
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601073580}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &601073582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601073580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 3
-    bleuValue: 0
-    jauneValue: 1
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 2
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &623867465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,7 +1231,7 @@ SpriteMask:
   m_BackSortingOrder: -100
   m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
---- !u!1 &654499484
+--- !u!1 &675528891
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1459,22 +1239,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 654499485}
-  - component: {fileID: 654499486}
+  - component: {fileID: 675528892}
+  - component: {fileID: 675528893}
   m_Layer: 0
-  m_Name: Ing (9)
+  m_Name: Ing (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &654499485
+--- !u!4 &675528892
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654499484}
+  m_GameObject: {fileID: 675528891}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -1483,68 +1263,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &654499486
+--- !u!114 &675528893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654499484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 3
-    bleuValue: 0
-    jauneValue: 1
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 5
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &757851957
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 757851958}
-  - component: {fileID: 757851959}
-  m_Layer: 0
-  m_Name: Ing (19)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &757851958
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757851957}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &757851959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757851957}
+  m_GameObject: {fileID: 675528891}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
@@ -1553,12 +1278,67 @@ MonoBehaviour:
   ingredientValue:
     rougeValue: 0
     bleuValue: 0
+    jauneValue: 2
+  nameIngredient: 
+  description: 
+  goldValue: 0
+  nbInInventory: 3
+  recipeSprite: {fileID: 21300000, guid: 4c143832e2dbf6b4d8f5d934572a3716, type: 3}
+  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
+  merchandSprite: {fileID: 0}
+--- !u!1 &828416101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 828416102}
+  - component: {fileID: 828416103}
+  m_Layer: 0
+  m_Name: Ing (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &828416102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828416101}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1382679991}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &828416103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828416101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientValue:
+    rougeValue: 0
+    bleuValue: 1
     jauneValue: 0
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 3
+  recipeSprite: {fileID: 21300000, guid: 91b39717ed5c04847aacc616d488230d, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1 &838313308
@@ -1798,7 +1578,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &996767204
+--- !u!1 &983348632
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1806,22 +1586,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 996767205}
-  - component: {fileID: 996767206}
+  - component: {fileID: 983348633}
+  - component: {fileID: 983348634}
   m_Layer: 0
-  m_Name: Ing (1)
+  m_Name: Ing (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &996767205
+--- !u!4 &983348633
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996767204}
+  m_GameObject: {fileID: 983348632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -1830,82 +1610,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &996767206
+--- !u!114 &983348634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996767204}
+  m_GameObject: {fileID: 983348632}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
+    rougeValue: 1
     bleuValue: 0
-    jauneValue: 0
+    jauneValue: 2
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1007699741
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1007699742}
-  - component: {fileID: 1007699743}
-  m_Layer: 0
-  m_Name: Ing (18)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1007699742
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007699741}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1007699743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007699741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 1
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 3
+  recipeSprite: {fileID: 21300000, guid: 9ddbb38b451d07e498d99c269d8106f2, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1 &1020036679
@@ -1983,6 +1708,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020036679}
   m_CullTransparentMesh: 1
+--- !u!1 &1021904540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021904541}
+  - component: {fileID: 1021904542}
+  m_Layer: 0
+  m_Name: Ing (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021904541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021904540}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1382679991}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021904542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021904540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientValue:
+    rougeValue: 0
+    bleuValue: 1
+    jauneValue: 0
+  nameIngredient: 
+  description: 
+  goldValue: 0
+  nbInInventory: 5
+  recipeSprite: {fileID: 21300000, guid: 91b39717ed5c04847aacc616d488230d, type: 3}
+  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
+  merchandSprite: {fileID: 0}
 --- !u!1 &1115840845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,116 +1898,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Animator: {fileID: 0}
---- !u!1 &1116464766
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1116464767}
-  - component: {fileID: 1116464768}
-  m_Layer: 0
-  m_Name: Ing (11)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1116464767
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116464766}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1116464768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116464766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1124796593
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1124796594}
-  - component: {fileID: 1124796595}
-  m_Layer: 0
-  m_Name: Ing (30)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1124796594
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124796593}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1124796595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124796593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &1128741123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,7 +2022,7 @@ Transform:
   - {fileID: 8444044711430470427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1153807477
+--- !u!1 &1221177954
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2360,22 +2030,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1153807478}
-  - component: {fileID: 1153807479}
+  - component: {fileID: 1221177955}
+  - component: {fileID: 1221177956}
   m_Layer: 0
-  m_Name: Ing (13)
+  m_Name: Ing (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1153807478
+--- !u!4 &1221177955
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1153807477}
+  m_GameObject: {fileID: 1221177954}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -2384,13 +2054,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1153807479
+--- !u!114 &1221177956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1153807477}
+  m_GameObject: {fileID: 1221177954}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
@@ -2398,16 +2068,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientValue:
     rougeValue: 0
-    bleuValue: 0
-    jauneValue: 1
+    bleuValue: 1
+    jauneValue: 0
   nameIngredient: 
   description: 
   goldValue: 0
   nbInInventory: 1
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  recipeSprite: {fileID: 21300000, guid: 91b39717ed5c04847aacc616d488230d, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
---- !u!1 &1174901359
+--- !u!1 &1248723426
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2415,22 +2085,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1174901360}
-  - component: {fileID: 1174901361}
+  - component: {fileID: 1248723427}
+  - component: {fileID: 1248723428}
   m_Layer: 0
-  m_Name: Ing (10)
+  m_Name: Ing (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1174901360
+--- !u!4 &1248723427
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174901359}
+  m_GameObject: {fileID: 1248723426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -2439,68 +2109,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1174901361
+--- !u!114 &1248723428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174901359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 2
-    bleuValue: 0
-    jauneValue: 1
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 1
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1240156292
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1240156293}
-  - component: {fileID: 1240156294}
-  m_Layer: 0
-  m_Name: Ing (24)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1240156293
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240156292}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1240156294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240156292}
+  m_GameObject: {fileID: 1248723426}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
@@ -2508,68 +2123,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientValue:
     rougeValue: 0
-    bleuValue: 0
-    jauneValue: 1
+    bleuValue: 2
+    jauneValue: 0
   nameIngredient: 
   description: 
   goldValue: 0
   nbInInventory: 1
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1300680737
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1300680738}
-  - component: {fileID: 1300680739}
-  m_Layer: 0
-  m_Name: Ing (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1300680738
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300680737}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1300680739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300680737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 2
-    bleuValue: 0
-    jauneValue: 4
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 5
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  recipeSprite: {fileID: 21300000, guid: 91b39717ed5c04847aacc616d488230d, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1 &1320798712
@@ -2619,67 +2179,12 @@ MonoBehaviour:
   ingredientValue:
     rougeValue: 0
     bleuValue: 0
-    jauneValue: 0
+    jauneValue: 1
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1334816872
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1334816873}
-  - component: {fileID: 1334816874}
-  m_Layer: 0
-  m_Name: Ing (33)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1334816873
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334816872}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1334816874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334816872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 1
+  recipeSprite: {fileID: 21300000, guid: 4c143832e2dbf6b4d8f5d934572a3716, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1 &1346726864
@@ -2724,11 +2229,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 78862a35bbbed2a42b6898dd5cec5df8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2810,6 +2315,61 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1353860294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353860295}
+  - component: {fileID: 1353860296}
+  m_Layer: 0
+  m_Name: Ing (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1353860295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353860294}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1382679991}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353860296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353860294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientValue:
+    rougeValue: 0
+    bleuValue: 1
+    jauneValue: 0
+  nameIngredient: 
+  description: 
+  goldValue: 0
+  nbInInventory: 1
+  recipeSprite: {fileID: 21300000, guid: 91b39717ed5c04847aacc616d488230d, type: 3}
+  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
+  merchandSprite: {fileID: 0}
 --- !u!1 &1382679990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,43 +2400,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1320798713}
-  - {fileID: 996767205}
-  - {fileID: 228646893}
-  - {fileID: 2027873874}
-  - {fileID: 1300680738}
-  - {fileID: 1985484009}
-  - {fileID: 444935796}
-  - {fileID: 1617648892}
-  - {fileID: 1896040247}
-  - {fileID: 654499485}
-  - {fileID: 1174901360}
-  - {fileID: 1116464767}
-  - {fileID: 2094776463}
-  - {fileID: 1153807478}
-  - {fileID: 499459173}
-  - {fileID: 601073581}
-  - {fileID: 79139386}
-  - {fileID: 264950372}
-  - {fileID: 1007699742}
-  - {fileID: 757851958}
-  - {fileID: 1744199836}
-  - {fileID: 1951050239}
-  - {fileID: 2090708202}
-  - {fileID: 1635089485}
-  - {fileID: 1240156293}
-  - {fileID: 573922642}
-  - {fileID: 2084317491}
-  - {fileID: 1743387647}
-  - {fileID: 1800408232}
-  - {fileID: 1907747913}
-  - {fileID: 1124796594}
-  - {fileID: 1565143037}
-  - {fileID: 275861961}
-  - {fileID: 1334816873}
-  - {fileID: 75717512}
-  - {fileID: 1973885473}
-  - {fileID: 392763657}
-  - {fileID: 1717941332}
+  - {fileID: 1221177955}
+  - {fileID: 2082362893}
+  - {fileID: 1248723427}
+  - {fileID: 360797888}
+  - {fileID: 828416102}
+  - {fileID: 675528892}
+  - {fileID: 983348633}
+  - {fileID: 2032909780}
+  - {fileID: 218273546}
+  - {fileID: 217302992}
+  - {fileID: 52960158}
+  - {fileID: 1021904541}
+  - {fileID: 2118121962}
+  - {fileID: 80834752}
+  - {fileID: 1993946345}
+  - {fileID: 1353860295}
+  - {fileID: 180229458}
   m_Father: {fileID: 1886714113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1409444354
@@ -3031,61 +2571,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1565143036
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1565143037}
-  - component: {fileID: 1565143038}
-  m_Layer: 0
-  m_Name: Ing (31)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1565143037
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565143036}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1565143038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565143036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 3
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 5
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &1580105371
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,116 +2658,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580105371}
   m_CullTransparentMesh: 1
---- !u!1 &1617648891
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1617648892}
-  - component: {fileID: 1617648893}
-  m_Layer: 0
-  m_Name: Ing (7)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1617648892
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617648891}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1617648893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617648891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 3
-    bleuValue: 0
-    jauneValue: 1
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 2
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1635089484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1635089485}
-  - component: {fileID: 1635089486}
-  m_Layer: 0
-  m_Name: Ing (23)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1635089485
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635089484}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1635089486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635089484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 4
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 5
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &1648472722
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,231 +2753,11 @@ RectTransform:
   m_AnchoredPosition: {x: -84.100006, y: -26.102966}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1717941331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1717941332}
-  - component: {fileID: 1717941333}
-  m_Layer: 0
-  m_Name: Ing (37)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1717941332
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717941331}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1717941333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717941331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 2
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 1
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!224 &1743364452 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2682485035760827715, guid: e003a5cb14b25144b9c354a78a9741aa, type: 3}
   m_PrefabInstance: {fileID: 4533101771474222783}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1743387646
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1743387647}
-  - component: {fileID: 1743387648}
-  m_Layer: 0
-  m_Name: Ing (27)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1743387647
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743387646}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1743387648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743387646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1744199835
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1744199836}
-  - component: {fileID: 1744199837}
-  m_Layer: 0
-  m_Name: Ing (20)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1744199836
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744199835}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1744199837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744199835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1800408231
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1800408232}
-  - component: {fileID: 1800408233}
-  m_Layer: 0
-  m_Name: Ing (28)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1800408232
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800408231}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1800408233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800408231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 5
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &1865682965
 GameObject:
   m_ObjectHideFlags: 0
@@ -3895,43 +3050,23 @@ MonoBehaviour:
   DynamicData:
     AllIngredients:
     - {fileID: 1320798714}
-    - {fileID: 996767206}
-    - {fileID: 228646894}
-    - {fileID: 2027873875}
-    - {fileID: 1300680739}
-    - {fileID: 1985484010}
-    - {fileID: 444935797}
-    - {fileID: 1617648893}
-    - {fileID: 1896040248}
-    - {fileID: 654499486}
-    - {fileID: 1174901361}
-    - {fileID: 1116464768}
-    - {fileID: 2094776464}
-    - {fileID: 1153807479}
-    - {fileID: 499459174}
-    - {fileID: 601073582}
-    - {fileID: 79139387}
-    - {fileID: 264950373}
-    - {fileID: 1007699743}
-    - {fileID: 757851959}
-    - {fileID: 1744199837}
-    - {fileID: 1951050240}
-    - {fileID: 2090708203}
-    - {fileID: 1635089486}
-    - {fileID: 1240156294}
-    - {fileID: 573922643}
-    - {fileID: 2084317492}
-    - {fileID: 1743387648}
-    - {fileID: 1800408233}
-    - {fileID: 1907747914}
-    - {fileID: 1124796595}
-    - {fileID: 1565143038}
-    - {fileID: 275861962}
-    - {fileID: 1334816874}
-    - {fileID: 75717513}
-    - {fileID: 1973885474}
-    - {fileID: 392763658}
-    - {fileID: 1717941333}
+    - {fileID: 1221177956}
+    - {fileID: 2082362894}
+    - {fileID: 1248723428}
+    - {fileID: 360797889}
+    - {fileID: 828416103}
+    - {fileID: 675528893}
+    - {fileID: 983348634}
+    - {fileID: 2032909781}
+    - {fileID: 218273547}
+    - {fileID: 217302993}
+    - {fileID: 52960159}
+    - {fileID: 1021904542}
+    - {fileID: 2118121963}
+    - {fileID: 80834753}
+    - {fileID: 1993946346}
+    - {fileID: 1353860296}
+    - {fileID: 180229459}
     Gold: 0
   textScore: {fileID: 448177362}
   character: {fileID: 173683334}
@@ -3973,116 +3108,6 @@ Transform:
   - {fileID: 1382679991}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1896040246
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1896040247}
-  - component: {fileID: 1896040248}
-  m_Layer: 0
-  m_Name: Ing (8)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1896040247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896040246}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1896040248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896040246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1907747912
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1907747913}
-  - component: {fileID: 1907747914}
-  m_Layer: 0
-  m_Name: Ing (29)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1907747913
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907747912}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1907747914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907747912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 1
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 1
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
 --- !u!1 &1936127310
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,7 +3238,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8495531, y: 8.981604}
   m_EdgeRadius: 0
---- !u!1 &1951050238
+--- !u!1 &1993946344
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4221,22 +3246,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1951050239}
-  - component: {fileID: 1951050240}
+  - component: {fileID: 1993946345}
+  - component: {fileID: 1993946346}
   m_Layer: 0
-  m_Name: Ing (21)
+  m_Name: Ing (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1951050239
+--- !u!4 &1993946345
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951050238}
+  m_GameObject: {fileID: 1993946344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4245,137 +3270,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1951050240
+--- !u!114 &1993946346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951050238}
+  m_GameObject: {fileID: 1993946344}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
+    rougeValue: 1
     bleuValue: 0
-    jauneValue: 0
+    jauneValue: 6
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 2
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1973885472
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1973885473}
-  - component: {fileID: 1973885474}
-  m_Layer: 0
-  m_Name: Ing (35)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1973885473
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973885472}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1973885474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973885472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &1985484008
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1985484009}
-  - component: {fileID: 1985484010}
-  m_Layer: 0
-  m_Name: Ing (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1985484009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985484008}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1985484010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985484008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 0
-    bleuValue: 3
-    jauneValue: 0
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 1
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 5
+  recipeSprite: {fileID: 21300000, guid: 9ddbb38b451d07e498d99c269d8106f2, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1 &2012834590
@@ -4512,7 +3427,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012834590}
   m_CullTransparentMesh: 1
---- !u!1 &2027873873
+--- !u!1 &2032909779
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4520,22 +3435,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2027873874}
-  - component: {fileID: 2027873875}
+  - component: {fileID: 2032909780}
+  - component: {fileID: 2032909781}
   m_Layer: 0
-  m_Name: Ing (3)
+  m_Name: Ing (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2027873874
+--- !u!4 &2032909780
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027873873}
+  m_GameObject: {fileID: 2032909779}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4544,13 +3459,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2027873875
+--- !u!114 &2032909781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027873873}
+  m_GameObject: {fileID: 2032909779}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
@@ -4558,13 +3473,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientValue:
     rougeValue: 0
-    bleuValue: 0
+    bleuValue: 3
     jauneValue: 0
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 3
+  recipeSprite: {fileID: 21300000, guid: 91b39717ed5c04847aacc616d488230d, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1 &2050004086 stripped
@@ -4588,7 +3503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db20e03d05dc69142afdc90891f36e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2084317490
+--- !u!1 &2082362892
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4596,22 +3511,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2084317491}
-  - component: {fileID: 2084317492}
+  - component: {fileID: 2082362893}
+  - component: {fileID: 2082362894}
   m_Layer: 0
-  m_Name: Ing (26)
+  m_Name: Ing (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2084317491
+--- !u!4 &2082362893
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084317490}
+  m_GameObject: {fileID: 2082362892}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4620,68 +3535,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2084317492
+--- !u!114 &2082362894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084317490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientValue:
-    rougeValue: 3
-    bleuValue: 0
-    jauneValue: 6
-  nameIngredient: 
-  description: 
-  goldValue: 0
-  nbInInventory: 2
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
-  descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
-  merchandSprite: {fileID: 0}
---- !u!1 &2090708201
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2090708202}
-  - component: {fileID: 2090708203}
-  m_Layer: 0
-  m_Name: Ing (22)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2090708202
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090708201}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1382679991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2090708203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090708201}
+  m_GameObject: {fileID: 2082362892}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
@@ -4690,12 +3550,12 @@ MonoBehaviour:
   ingredientValue:
     rougeValue: 0
     bleuValue: 0
-    jauneValue: 0
+    jauneValue: 4
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 0
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 1
+  recipeSprite: {fileID: 21300000, guid: 4c143832e2dbf6b4d8f5d934572a3716, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1 &2093259705
@@ -4752,7 +3612,7 @@ MonoBehaviour:
   dialogueController: {fileID: 318805672}
   dialogueObject: {fileID: 318805670}
   endGameObject: {fileID: 527584788}
---- !u!1 &2094776462
+--- !u!1 &2118121961
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4760,22 +3620,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2094776463}
-  - component: {fileID: 2094776464}
+  - component: {fileID: 2118121962}
+  - component: {fileID: 2118121963}
   m_Layer: 0
-  m_Name: Ing (12)
+  m_Name: Ing (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2094776463
+--- !u!4 &2118121962
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094776462}
+  m_GameObject: {fileID: 2118121961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4784,13 +3644,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1382679991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2094776464
+--- !u!114 &2118121963
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094776462}
+  m_GameObject: {fileID: 2118121961}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d56760e34578cf458c3006716d3ae1f, type: 3}
@@ -4803,8 +3663,8 @@ MonoBehaviour:
   nameIngredient: 
   description: 
   goldValue: 0
-  nbInInventory: 5
-  recipeSprite: {fileID: 21300000, guid: 0956c6e7fc809f3448b0c07f5366eba5, type: 3}
+  nbInInventory: 2
+  recipeSprite: {fileID: 21300000, guid: 9ddbb38b451d07e498d99c269d8106f2, type: 3}
   descriptionSprite: {fileID: 21300000, guid: 29d797ad67007714a814213149ceb9f7, type: 3}
   merchandSprite: {fileID: 0}
 --- !u!1001 &40108480284635543
@@ -4967,6 +3827,14 @@ PrefabInstance:
     - target: {fileID: 1364258137413684792, guid: 8776320a59565d243ac6b69ae3b73959, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784109997793425088, guid: 8776320a59565d243ac6b69ae3b73959, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 444.0788
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784109997793425088, guid: 8776320a59565d243ac6b69ae3b73959, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.0740967
       objectReference: {fileID: 0}
     - target: {fileID: 5863540990690497358, guid: 8776320a59565d243ac6b69ae3b73959, type: 3}
       propertyPath: dialogueCanvasGroup
@@ -5374,6 +4242,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8444044711430470427}
     m_Modifications:
+    - target: {fileID: 328687038849108313, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: addedSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 328687038849108313, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: startDelayInSec
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593413675203109714, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: addedSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593413675203109714, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: startDelayInSec
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5405792072216434185, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5420,6 +4304,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6134819611332254546, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368488115571762094, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: addedSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368488115571762094, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: startDelayInSec
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
