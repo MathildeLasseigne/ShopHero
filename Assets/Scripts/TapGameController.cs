@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 public class TapGameController : MonoBehaviour
 {
 
-    [SerializeField] GameObject tileObjectRegularPrefab;
-    [SerializeField] GameObject tileObjectDynamicPrefab;
-    [SerializeField] Transform startPointReg;
-    [SerializeField] Transform startPointDyn;
+    [SerializeField] GameObject tileObjectPrefab;
+    [SerializeField] Transform startPoint;
     //[SerializeField] Collider2D gameBounds;
     //[SerializeField] int tilesNb = 0;
 
+    /// <summary>
+    /// param bool : is tile long
+    /// </summary>
+    private Action<bool> tileTouchedEvent;
+
     private Coroutine currentCoroutine;
 
-    private List<Transform> tilesRegular = new List<Transform>();
-    private List<Transform> tilesDynamic = new List<Transform>();
+    private List<Transform> tilesList = new List<Transform>();
 
     [SerializeField] int bpm = 60;
     [SerializeField] int addedSpeed = 20;
@@ -30,21 +33,28 @@ public class TapGameController : MonoBehaviour
 
     [SerializeField] KeyCode TappingKey;
 
-    [SerializeField] Difficulty difficulties = new Difficulty();
     [SerializeField] Difficultylvl currentDifficulty = Difficultylvl.Easy;
 
-    private Motifs currentMotif = Motifs.Noire;
-
-
-
-    public enum Motifs {Noire, Croche, Double, Triple, Maintien}
     public enum Difficultylvl { Easy, Medium, Hard }
+
+    [SerializeField] private bool useRegularInstanciation = false;
+    [SerializeField] private float regularWaitBetweenInstanceInSec = 2f;
+
 
 
 
     private bool tileInCollision = false;
-    private bool currentlyLongTile = false;
     private bool tileTapped = false;
+
+    private bool waitingForLongTile = false;
+    private bool longTileInProgress = false;
+
+    public List<Tile> currentCollisionTiles = new List<Tile>();
+
+    public List<Tile> garbageTiles = new List<Tile>();
+
+
+    private bool mustCollectGarbage = false;
 
 
     private void Update()
@@ -54,53 +64,98 @@ public class TapGameController : MonoBehaviour
         {
 
     #region MOVE
-            foreach (var tile in tilesRegular)
-            {
-                if (tile != null)
-                    tile.Translate(Vector3.right * bps * addedSpeed * Time.deltaTime);
-            }
 
-            foreach (var tileDyn in tilesDynamic)
+            foreach (var tileDyn in tilesList)
             {
                 if (tileDyn != null)
                     tileDyn.Translate(Vector3.right * bps * addedSpeed * Time.deltaTime);
             }
             #endregion
 
-            if (Input.GetKeyDown(TappingKey))
+            if(!waitingForLongTile)
             {
-                if (tileInCollision)
+                if (Input.GetKeyDown(TappingKey))
                 {
-                    tileTapped = true;
-                    TileTouched();
+                    if (tileInCollision)
+                    {
+                        tileTapped = true;
+                        TileTouched();
+                    }
+                    else
+                        currentCollisionTiles.Clear();
+                }
+            } else
+            {
+                if (Input.GetKeyDown(TappingKey))
+                {
+                    if (tileInCollision)
+                    {
+                        tileTapped = true;
+                        longTileInProgress = true;
+                        TileLongTouch(true);
+                    }
+                    else
+                        currentCollisionTiles.Clear();
+                }
+                if (Input.GetKeyUp(TappingKey))
+                {
+                    if (tileInCollision && longTileInProgress)
+                    {
+                        tileTapped = true;
+                        waitingForLongTile = false;
+                        TileLongTouch(false);
+                    }
+                    else
+                        currentCollisionTiles.Clear(); //Did not go up at the right moment
+
+                    longTileInProgress = false;
                 }
             }
+            
 
 
         }
+
+
+        if (mustCollectGarbage)
+            CollectGarbage();
 
     }
 
     public void Init()
     {
         bps = bpm / 60;
+        CollectGarbage();
 
-        if (currentDifficulty == Difficultylvl.Easy)
-            currentMotif = difficulties.Lvl_1;
-        else if (currentDifficulty == Difficultylvl.Medium)
-            currentMotif = difficulties.Lvl_2;
-        else
-            currentMotif = difficulties.Lvl_3;
+        foreach (Transform trans in tilesList)
+        {
+            Destroy(trans.gameObject);
+        }
+        tilesList.Clear();
+
+        foreach (Tile tile in currentCollisionTiles)
+        {
+            Destroy(tile.parentObject);
+        }
+        currentCollisionTiles.Clear();
+
+        Difficultylvl currentDifficulty = Difficultylvl.Easy;
+
+        start = false;
+        tileInCollision = false;
+        tileTapped = false;
+        waitingForLongTile = false;
+        longTileInProgress = false;
     }
 
     public void StartGame()
     {
         Debug.Log("Start game");
         start = true;
-        if(tileObjectRegularPrefab)
-            StartCoroutine(InstantiateTilesRegularCoroutines());
-        if (tileObjectDynamicPrefab)
-            StartCoroutine(InstantiateTilesDynamicCoroutines());
+        if (tileObjectPrefab)
+            StartCoroutine(InstantiateTilesCoroutines());
+
+        StartCoroutine(GarbageCountdownCoroutine());
 
     }
 
@@ -109,75 +164,178 @@ public class TapGameController : MonoBehaviour
         start = false;
     }
 
-    private IEnumerator InstantiateTilesRegularCoroutines()
+    private IEnumerator InstantiateTilesCoroutines()
     {
-        yield return new WaitForSeconds(startDelayInSec);
-        WaitForSeconds delay = new WaitForSeconds(bps);
 
-        Debug.Log("Start coroutine reg");
+        if (useRegularInstanciation)
+        {
+            #region regular instanciation
+
+            WaitForSeconds delay = new WaitForSeconds(regularWaitBetweenInstanceInSec);
+            yield return new WaitForSeconds(startDelayInSec);
+
+            while (start)
+            {
+                InstantiateTile();
+                yield return delay;
+            }
+
+            #endregion
+        }
+        else
+        {
+            #region dynamic instanciation
+            int chanceForDouble = 60;
+
+            yield return new WaitForSeconds(startDelayInSec);
+            yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
+            Debug.Log("Start coroutine");
+            while (start)
+            {
+                if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
+                {
+                    Debug.Log("Instantiate long");
+                    InstantiateTile(isStartLong: true);
+                    yield return new WaitForSeconds(UnityEngine.Random.Range(2, 6));
+                    InstantiateTile(isEndLong: true);
+                }
+                else
+                {
+                    InstantiateTile();
+                }
+
+
+
+                yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 5));
+            }
+            #endregion
+        }
+
+
+    }
+
+    private void InstantiateTile(bool isStartLong = false, bool isEndLong = false)
+    {
+        GameObject tileobject = Instantiate(tileObjectPrefab, startPoint.transform.position, Quaternion.identity);
+        tileobject.transform.parent = startPoint;
+        tilesList.Add(tileobject.transform);
+        Tile tile = tileobject.GetComponent<TileParent>().GetTile();
+        tile.SetController(this);
+        if (isStartLong)
+            tile.SetIsLongStart();
+        if (isEndLong)
+            tile.SetIsLongEnd();
+    }
+
+    private IEnumerator GarbageCountdownCoroutine()
+    {
+        WaitForSeconds delay = new WaitForSeconds(5);
         while (start)
         {
-            GameObject tile = Instantiate(tileObjectRegularPrefab, startPointReg.transform.position, Quaternion.identity);
-            tile.transform.parent = startPointReg;
-            tilesRegular.Add(tile.transform);
-            tile.GetComponent<TileParent>().GetTile().SetController(this);
             yield return delay;
-        }
-    }
-
-    private IEnumerator InstantiateTilesDynamicCoroutines()
-    {
-
-        yield return new WaitForSeconds(startDelayInSec);
-        yield return new WaitForSeconds(Random.Range(2, 7));
-        Debug.Log("Start coroutine dyn");
-        while (start)
-        {
-            GameObject tile = Instantiate(tileObjectDynamicPrefab, startPointReg.transform.position, Quaternion.identity);
-            tile.transform.parent = startPointDyn;
-            tilesDynamic.Add(tile.transform);
-            tile.GetComponent<TileParent>().GetTile().SetController(this);
-            yield return new WaitForSeconds(Random.Range(0.5f, 5));
+            mustCollectGarbage = true;
         }
     }
 
 
-    public void TriggerTileInCollisionZone(bool isInCollision, bool wait = false, bool isStart = true)
+    /// <summary>
+    /// trigger in collision and handle missed tile case
+    /// </summary>
+    /// <param name="tile"></param>
+    /// <param name="isInCollision"></param>
+    /// <param name="wait"></param>
+    public void TriggerTileInCollisionZone(Tile tile, bool isInCollision, bool wait = false)
     {
         tileInCollision = isInCollision;
         if (isInCollision)
-            currentlyLongTile = wait;
+        {
+            waitingForLongTile = wait;
+            currentCollisionTiles.Add(tile);
+        }
         else if(! tileTapped)
         {
             TileMissed();
+            if(tile.isLong && tile.isEnd)
+            {
+                Debug.Log("Missed long tile end");
+                waitingForLongTile = false; //mark end of long tile in case of miss
+                longTileInProgress = false;
+            }
+            currentCollisionTiles.Remove(tile);
         }
 
         tileTapped = false;
     }
 
+    public void RegisterToDestroy(Tile tile)
+    {
+        tile.parentObject.SetActive(false);
+        tilesList.Remove(tile.transform);
+        garbageTiles.Add(tile);
+    }
+
 
     public void TileMissed()
     {
-        Debug.Log("Tile Missed !");
-        MainGameManager.Instance.AddToScore(-10);
+        //Debug.Log("Tile Missed !");
+        //MainGameManager.Instance.AddToScore(-10);
     }
 
     public void TileTouched()
     {
         Debug.Log("Tile Touched !");
-        MainGameManager.Instance.AddToScore(10);
+        tileTouchedEvent.Invoke(false);
+        MainGameManager.Instance.AddToScore(DataDetail.SCORE_INCREASE_SIMPLE);
+        MainGameManager.Instance.SoundBoard.SourceTappingGame.PlayOneShot(MainGameManager.Instance.SoundBoard.ClipTileTaped);
+        CleanGoodTiles();
     }
 
-
-
-
-
-    [System.Serializable]
-    class Difficulty
+    public void TileLongTouch(bool isStart)
     {
-        public Motifs Lvl_1;
-        public Motifs Lvl_2;
-        public Motifs Lvl_3;
+        if (isStart)
+        {
+            tileTouchedEvent.Invoke(false);
+            MainGameManager.Instance.AddToScore(DataDetail.SCORE_INCREASE_SIMPLE);
+            currentCollisionTiles.Clear(); // Remove from current tile but keep moving to the right
+        } else
+        {
+            tileTouchedEvent.Invoke(true);
+            MainGameManager.Instance.AddToScore(DataDetail.SCORE_INCREASE_DOUBLE);
+            CleanGoodTiles();
+        }
+        MainGameManager.Instance.SoundBoard.SourceTappingGame.PlayOneShot(MainGameManager.Instance.SoundBoard.ClipTileTaped);
+    }
+
+    public void SuscribeToTileTouchEvent(Action<bool> callback)
+    {
+        tileTouchedEvent += callback;
+    }
+
+    private void CleanGoodTiles()
+    {
+        foreach(Tile tile in currentCollisionTiles)
+        {
+            if (tile == null)
+                Debug.Log("debug");
+            RegisterToDestroy(tile);
+        }
+        currentCollisionTiles.Clear();
+
+    }
+
+    private void CollectGarbage()
+    {
+        /*for (int i = garbageTiles.Count - 1; i >= 0; i--)
+        {
+            Destroy(garbageTiles.)
+            if (whatever) garbageTiles.RemoveAt(i);
+        }*/
+        foreach (Tile tile in garbageTiles)
+        {
+            Destroy(tile.parentObject);
+        }
+        garbageTiles.Clear();
+        mustCollectGarbage = false;
     }
 
 }

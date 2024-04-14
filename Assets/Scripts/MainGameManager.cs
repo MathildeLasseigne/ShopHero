@@ -8,6 +8,8 @@ public class MainGameManager : MonoBehaviour
 
     public static MainGameManager Instance;
 
+    public SoundBoard SoundBoard;
+
     [SerializeField] TextMeshProUGUI textScore;
 
 
@@ -27,6 +29,8 @@ public class MainGameManager : MonoBehaviour
         Debug.Log("Start main");
         foreach(TapGameController controller in gameControllersList)
         {
+            if (controller.gameObject.active == false)
+                continue;
             controller.Init();
             controller.StartGame();
         }
@@ -42,5 +46,6 @@ public class MainGameManager : MonoBehaviour
         }
             
     }
+
 
 }
