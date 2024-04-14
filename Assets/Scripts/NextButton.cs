@@ -21,7 +21,8 @@ public class NextButton : MonoBehaviour
     {
         Debug.Log("Next Button Clicked");
         MainGameManager.Instance.NextStep();
-        _Animator?.SetTrigger("DoAnim");
+        if(_Animator)
+            _Animator?.SetTrigger("DoAnim");
     }
 
 }

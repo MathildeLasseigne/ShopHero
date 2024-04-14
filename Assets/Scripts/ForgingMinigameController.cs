@@ -11,14 +11,30 @@ public class ForgingMinigameController : MonoBehaviour
     [SerializeField] RecipeInventoryController inventoryController;
     [SerializeField] GameObject recipeTable;
 
+    [SerializeField] DialogueController dialogueController;
+
+    Character character;
+
     private  enum Step { Reciping, Forging, EndEvent};
 
     private Step currentStep;
 
 
 
-    public void StartMinigame()
+    public void Init()
     {
+        foreach (TapGameController controller in gameControllersList)
+        {
+            controller.SuscribeToTileTouchEvent(TileTouchedMinigame);
+        }
+        dialogueController.SuscribeToDialogueFinishedEvent(NextStep);
+        inventoryController.SuscribeToDialogueFinishedEvent(NextStep);
+    }
+
+    public void StartMinigame(Character character)
+    {
+        this.character = character;
+        dialogueController.SetCharacter(character);
         StartCoroutine(StartReciping());
         currentStep = Step.Reciping;
         //StartForging();
@@ -46,6 +62,9 @@ public class ForgingMinigameController : MonoBehaviour
     IEnumerator StartReciping()
 
     {
+        dialogueController.Init();
+        dialogueController.BeginDialogue(false);
+
         ShowReceipingTable() ;
         yield return new WaitForSeconds(2); //Time of anim
         inventoryController.Init();

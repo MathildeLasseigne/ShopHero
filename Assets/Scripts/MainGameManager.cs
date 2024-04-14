@@ -16,6 +16,7 @@ public class MainGameManager : MonoBehaviour
     public Data DynamicData = new Data();
 
     [SerializeField] TextMeshProUGUI textScore;
+    [SerializeField] Character character;
 
 
     [SerializeField] private int currentScore = 0;
@@ -29,7 +30,8 @@ public class MainGameManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Start main");
-        forgingMinigameController.StartMinigame();
+        forgingMinigameController.Init();
+        forgingMinigameController.StartMinigame(character);
     }
 
     public void AddToScore(int addition)

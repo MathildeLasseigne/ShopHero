@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,11 +14,15 @@ public class RecipeInventoryController : MonoBehaviour
 
     [SerializeField] private Image mixResultImage;
 
+    [SerializeField] private Sprite endRecipeDescription;
+
     private int maxIngredientValue = 3;
 
     private bool isSelected = false;
 
-    private List<Ingredient> currentIngredients = new List<Ingredient>();  
+    private List<Ingredient> currentIngredients = new List<Ingredient>();
+
+    private Action DialogueFinishedEvent;
 
     public void Init()
     {
@@ -109,6 +114,27 @@ public class RecipeInventoryController : MonoBehaviour
     public void HideIngredientDescription()
     {
         ingredientsDescription?.gameObject.SetActive(false);
+    }
+
+    public void DiplayEndRecipeDescription()
+    {
+        ingredientsDescription.sprite = endRecipeDescription;
+        ingredientsDescription?.gameObject.SetActive(true);
+    }
+
+    public void HideEndRecipeDescription()
+    {
+        ingredientsDescription?.gameObject.SetActive(false);
+    }
+
+    public void OnClickEndRecipeDescription()
+    {
+        DialogueFinishedEvent?.Invoke();
+    }
+
+    public void SuscribeToDialogueFinishedEvent(Action callback)
+    {
+        DialogueFinishedEvent += callback;
     }
 
 
