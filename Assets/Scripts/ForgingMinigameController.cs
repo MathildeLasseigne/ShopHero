@@ -30,7 +30,7 @@ public class ForgingMinigameController : MonoBehaviour
         {
             controller.SuscribeToTileTouchEvent(TileTouchedMinigame);
         }
-        //dialogueController.SuscribeToDialogueFinishedEvent(NextStep);
+        dialogueController.SuscribeToDialogueFinishedEvent(NextStep);
         inventoryController.SuscribeToRecipeFinishedEvent(NextStep);
     }
 
@@ -45,7 +45,6 @@ public class ForgingMinigameController : MonoBehaviour
 
     public void NextStep()
     {
-        Debug.Log("Next step");
         if(currentStep == Step.Reciping)
         {
             StartCoroutine(StartForging());
@@ -90,6 +89,7 @@ public class ForgingMinigameController : MonoBehaviour
             if (controller.gameObject.activeInHierarchy == false)
                 continue;
             controller.Init();
+            MainGameManager.Instance.SoundBoard.SourceTappingGame.Play();
             controller.StartGame();
             controller.SuscribeToTileTouchEvent(TileTouchedMinigame);
         }

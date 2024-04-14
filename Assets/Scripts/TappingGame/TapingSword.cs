@@ -7,7 +7,7 @@ public class TapingSword : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("sword" + transform.position);
     }
 
     // Update is called once per frame

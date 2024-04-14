@@ -66,7 +66,6 @@ public class RecipeInventoryController : MonoBehaviour
 
         Color newTint = new Color(r/255f, g / 255f, b / 255f); //Color is not by 255 but 1
         mixResultImage.color = newTint;
-        Debug.Log("NEw tint = " + newTint);
     }
      
     float PreventGoingUnder(float var, float x)

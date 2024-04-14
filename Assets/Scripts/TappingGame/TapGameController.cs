@@ -21,6 +21,9 @@ public class TapGameController : MonoBehaviour
 
     private List<Transform> tilesList = new List<Transform>();
 
+    public string PathToPartition = "";
+
+
     [SerializeField] int bpm = 60;
     [SerializeField] int addedSpeed = 20;
     [SerializeField] float startDelayInSec = 1;
@@ -56,6 +59,21 @@ public class TapGameController : MonoBehaviour
 
     private bool mustCollectGarbage = false;
 
+    int skipNotesTo = 5;
+
+    int currentNoteIdx = 0;
+
+    List<float> noteWaintingTime = new List<float>();
+
+    //Calculated with math
+    float distance = 709.09f;
+
+    float timeDecalage;
+
+    float speed =  0f;
+
+    float firstWaitingTime = 0f;
+
 
     private void Update()
     {
@@ -68,7 +86,7 @@ public class TapGameController : MonoBehaviour
             foreach (var tileDyn in tilesList)
             {
                 if (tileDyn != null)
-                    tileDyn.Translate(Vector3.right * bps * addedSpeed * Time.deltaTime);
+                    tileDyn.Translate(Vector3.right * speed * Time.deltaTime);
             }
             #endregion
 
@@ -147,11 +165,23 @@ public class TapGameController : MonoBehaviour
         tileTapped = false;
         waitingForLongTile = false;
         longTileInProgress = false;
+
+        Debug.Log("Parent" + startPoint.position);
+
+        this.noteWaintingTime = getTileTimeFromMidi();
+        speed = bps * addedSpeed;
+        timeDecalage = distance / speed;
+        for (int i = 0; i < this.skipNotesTo; i++)
+        {
+            currentNoteIdx = i;
+            firstWaitingTime += noteWaintingTime[i];
+        }
+        firstWaitingTime -= timeDecalage;
+
     }
 
     public void StartGame()
     {
-        Debug.Log("Start game");
         start = true;
         if (tileObjectPrefab)
             StartCoroutine(InstantiateTilesCoroutines());
@@ -188,10 +218,14 @@ public class TapGameController : MonoBehaviour
             #region dynamic instanciation
             int chanceForDouble = 60;
 
-            yield return new WaitForSeconds(startDelayInSec);
-            yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
+            //yield return new WaitForSeconds(startDelayInSec);
+
+            
+            yield return new WaitForSeconds(firstWaitingTime);
+
+            //yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
             Debug.Log("Start coroutine");
-            while (start)
+            while (start && currentNoteIdx < noteWaintingTime.Count)
             {
                 if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
                 {
@@ -204,11 +238,21 @@ public class TapGameController : MonoBehaviour
                 {
                     InstantiateTile();
                 }
+                /*InstantiateTile();
+                yield return new WaitForSeconds(noteWaintingTime[currentNoteIdx]);
+                currentNoteIdx++;*/
 
 
-
-                yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 5));
             }
+            /*yield return new WaitForSeconds(2);
+            InstantiateTile(isStartLong: true);
+
+            yield return new WaitForSeconds(3);
+            InstantiateTile(isStartLong: true);
+
+            yield return new WaitForSeconds(5);
+            InstantiateTile(isStartLong: true);*/
+
             #endregion
         }
 
@@ -258,7 +302,6 @@ public class TapGameController : MonoBehaviour
             TileMissed();
             if (tile.isLong && tile.isEnd)
             {
-                Debug.Log("Missed long tile end");
                 waitingForLongTile = false; //mark end of long tile in case of miss
                 longTileInProgress = false;
             }
@@ -284,7 +327,6 @@ public class TapGameController : MonoBehaviour
 
     public void TileTouched()
     {
-        Debug.Log("Tile Touched !");
         tileTouchedEvent.Invoke(false);
         MainGameManager.Instance.AddToScore(DataDetail.SCORE_INCREASE_SIMPLE);
         MainGameManager.Instance.SoundBoard.SourceTappingGame.PlayOneShot(MainGameManager.Instance.SoundBoard.ClipTileTaped);
@@ -317,8 +359,6 @@ public class TapGameController : MonoBehaviour
     {
         foreach (Tile tile in currentCollisionTiles)
         {
-            if (tile == null)
-                Debug.Log("debug");
             RegisterToDestroy(tile);
         }
         currentCollisionTiles.Clear();
@@ -340,25 +380,36 @@ public class TapGameController : MonoBehaviour
         mustCollectGarbage = false;
     }
 
-    /*List<float> getTileTimeFromMidi()
+    List<float> getTileTimeFromMidi()
     {
         List<float> ticks = new List<float>();
-        var midiFile = new MidiFile("path_to_midi_file.mid");
+        List<float> values = new List<float>();
+        var midiFile = new MidiFile(PathToPartition);
         int BPM = midiFile.TicksPerQuarterNote;
+        List<float> diff = new List<float>();
+
         foreach (var track in midiFile.Tracks)
         {
-            var c = 0;
             foreach (var midiEvent in track.MidiEvents)
             {
 
                 if (midiEvent.MidiEventType == MidiEventType.NoteOn)
                 {
                     var time = midiEvent.Time;
-                    c = c + time;
+
+                        ticks.Add(time);
                     // Ici, créer une liste des c après boucle puis faire apparaître notes en fonction des c
+                    Debug.Log("Lane " + TappingKey + " Time = " + midiEvent.Time);
                 }
 
             }
+            for(int i = 0; i < ticks.Count-1; i++)
+            {
+                diff.Add(ticks[i + 1] - ticks[i]);
+            }
         }
-    }*/
+        Debug.Log("Count = " + ticks.Count);
+
+        return diff;
+    }
 }

@@ -47,7 +47,6 @@ public class MainGameManager : MonoBehaviour
 
         forgingMinigameController.Init();
         forgingMinigameController.StartMinigame(character);
-        SoundBoard.SourceTappingGame.Play();
     }
 
     public void AddToScore(int addition)
