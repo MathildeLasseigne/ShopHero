@@ -54,11 +54,23 @@ public class MainGameManager : MonoBehaviour
         return inventory;
     }
 
+    void AddGold(int gold)
+    {
+        DynamicData.Gold += gold;
+    }
+
+    public void NextStep()
+    {
+        forgingMinigameController.NextStep();
+    }
+
 
     [Serializable]
     public class Data
     {
         public List<Ingredient> AllIngredients;
+
+        public int Gold = 0;
     }
 
 }
