@@ -26,6 +26,12 @@ public class MainGameManager : MonoBehaviour
 
     private void Awake()
     {
+        //Singleton
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
     }
 

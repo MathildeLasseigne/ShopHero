@@ -59,21 +59,15 @@ public class RecipeInventoryController : MonoBehaviour
     {
         IngredientValue value = GetMixIngredientValues();
 
-        int step = 85; // because 3 values
-        float r = PreventGoingUnder(255 - (value.bleuValue * step), 0);
-        float g = PreventGoingUnder(255 - (value.bleuValue * step) - (value.rougeValue * step), 0);
-        float b = PreventGoingUnder(255 - (value.jauneValue * step) - (value.rougeValue * step), 0);
+        int step = 85; //  85 = 255/3 because 3 values
+        float r = Utils.PreventGoingUnder(255 - (value.bleuValue * step), 0);
+        float g = Utils.PreventGoingUnder(255 - (value.bleuValue * step) - (value.rougeValue * step), 0);
+        float b = Utils.PreventGoingUnder(255 - (value.jauneValue * step) - (value.rougeValue * step), 0);
 
         Color newTint = new Color(r/255f, g / 255f, b / 255f); //Color is not by 255 but 1
         mixResultImage.color = newTint;
     }
      
-    float PreventGoingUnder(float var, float x)
-    {
-        if (var < x)
-            var = x;
-        return var;
-    }
 
     IngredientValue GetMixIngredientValues()
     {
@@ -82,12 +76,7 @@ public class RecipeInventoryController : MonoBehaviour
         {
             value.Add(ingredient.ingredientValue);
         }
-        if (value.rougeValue >= maxIngredientValue)
-            value.rougeValue = maxIngredientValue;
-        if (value.jauneValue >= maxIngredientValue)
-            value.jauneValue = maxIngredientValue;
-        if (value.bleuValue >= maxIngredientValue)
-            value.bleuValue = maxIngredientValue;
+        value.CapValuesAt(maxIngredientValue);
         
         return value;
     }

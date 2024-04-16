@@ -9,8 +9,6 @@ public class TapGameController : MonoBehaviour
 
     [SerializeField] GameObject tileObjectPrefab;
     [SerializeField] Transform startPoint;
-    //[SerializeField] Collider2D gameBounds;
-    //[SerializeField] int tilesNb = 0;
 
     /// <summary>
     /// param bool : is tile long
@@ -19,20 +17,14 @@ public class TapGameController : MonoBehaviour
 
     private Coroutine currentCoroutine;
 
+    //Tiles collection
     private List<Transform> tilesList = new List<Transform>();
+    private List<Tile> currentCollisionTiles = new List<Tile>();
+    private List<Tile> garbageTiles = new List<Tile>();
 
+
+    [Header("Instance controls")]
     public string PathToPartition = "";
-
-
-    [SerializeField] int bpm = 60;
-    [SerializeField] int addedSpeed = 20;
-    [SerializeField] float startDelayInSec = 1;
-    /// <summary>
-    /// beat per second
-    /// </summary>
-    private float bps = 0;
-
-    private bool start = false;
 
     [SerializeField] KeyCode TappingKey;
 
@@ -40,10 +32,19 @@ public class TapGameController : MonoBehaviour
 
     public enum Difficultylvl { Easy, Medium, Hard }
 
+
     [SerializeField] private bool useRegularInstanciation = false;
     [SerializeField] private float regularWaitBetweenInstanceInSec = 2f;
 
+    private bool start = false;
 
+    [SerializeField] int addedSpeed = 20;
+    /// <summary>
+    /// beat per second
+    /// </summary>
+    [SerializeField] int bpm = 60;
+
+    private float bps = 0;
 
 
     private bool tileInCollision = false;
@@ -52,14 +53,14 @@ public class TapGameController : MonoBehaviour
     private bool waitingForLongTile = false;
     private bool longTileInProgress = false;
 
-    public List<Tile> currentCollisionTiles = new List<Tile>();
-
-    public List<Tile> garbageTiles = new List<Tile>();
+    
 
 
     private bool mustCollectGarbage = false;
 
     int skipNotesTo = 5;
+
+    //Midi calculations
 
     int currentNoteIdx = 0;
 
@@ -73,6 +74,15 @@ public class TapGameController : MonoBehaviour
     float speed =  0f;
 
     float firstWaitingTime = 0f;
+
+    #region Test vars
+
+    [Header("Test vars")]
+    [SerializeField] private bool useRandomInstanciation = true;
+    [SerializeField] float startDelayInSec = 1;
+
+
+    #endregion
 
 
     private void Update()
@@ -89,6 +99,8 @@ public class TapGameController : MonoBehaviour
                     tileDyn.Translate(Vector3.right * speed * Time.deltaTime);
             }
             #endregion
+
+            #region Collision
 
             if (!waitingForLongTile)
             {
@@ -131,14 +143,13 @@ public class TapGameController : MonoBehaviour
                 }
             }
 
-
+            #endregion
 
         }
 
 
         if (mustCollectGarbage)
             CollectGarbage();
-
     }
 
     public void Init()
@@ -146,17 +157,7 @@ public class TapGameController : MonoBehaviour
         bps = bpm / 60;
         CollectGarbage();
 
-        foreach (Transform trans in tilesList)
-        {
-            Destroy(trans.gameObject);
-        }
-        tilesList.Clear();
-
-        foreach (Tile tile in currentCollisionTiles)
-        {
-            Destroy(tile.parentObject);
-        }
-        currentCollisionTiles.Clear();
+        CleanAllTiles();
 
         Difficultylvl currentDifficulty = Difficultylvl.Easy;
 
@@ -186,7 +187,7 @@ public class TapGameController : MonoBehaviour
         if (tileObjectPrefab)
             StartCoroutine(InstantiateTilesCoroutines());
 
-        StartCoroutine(GarbageCountdownCoroutine());
+        StartGarbageCollectionRoutine();
 
     }
 
@@ -216,34 +217,47 @@ public class TapGameController : MonoBehaviour
         else
         {
             #region dynamic instanciation
-            int chanceForDouble = 60;
 
-            //yield return new WaitForSeconds(startDelayInSec);
 
             
-            yield return new WaitForSeconds(firstWaitingTime);
+            //yield return new WaitForSeconds(firstWaitingTime);
 
-            //yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
             Debug.Log("Start coroutine");
-            while (start && currentNoteIdx < noteWaintingTime.Count)
+
+            #region Random Instanciation for tests : if useRandomInstanciation = true
+
+            if (useRandomInstanciation) // For tests, else set to false
             {
-                if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
-                {
-                    Debug.Log("Instantiate long");
-                    InstantiateTile(isStartLong: true);
-                    yield return new WaitForSeconds(UnityEngine.Random.Range(2, 6));
-                    InstantiateTile(isEndLong: true);
-                }
-                else
-                {
-                    InstantiateTile();
-                }
-                /*InstantiateTile();
-                yield return new WaitForSeconds(noteWaintingTime[currentNoteIdx]);
-                currentNoteIdx++;*/
+                int chanceForDouble = 60;
+
+                yield return new WaitForSeconds(startDelayInSec);
+
+                yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
 
 
+                while (start && currentNoteIdx < noteWaintingTime.Count)
+                {
+                    if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
+                    {
+                        Debug.Log("Instantiate long");
+                        InstantiateTile(isStartLong: true);
+                        yield return new WaitForSeconds(UnityEngine.Random.Range(2, 6));
+                        InstantiateTile(isEndLong: true);
+                    }
+                    else
+                    {
+                        InstantiateTile();
+                    }
+
+                    yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
+                }
             }
+            #endregion
+            else
+            {
+                // TODO : Real instanciation
+            }
+
             /*yield return new WaitForSeconds(2);
             InstantiateTile(isStartLong: true);
 
@@ -272,15 +286,7 @@ public class TapGameController : MonoBehaviour
             tile.SetIsLongEnd();
     }
 
-    private IEnumerator GarbageCountdownCoroutine()
-    {
-        WaitForSeconds delay = new WaitForSeconds(5);
-        while (start)
-        {
-            yield return delay;
-            mustCollectGarbage = true;
-        }
-    }
+    
 
 
     /// <summary>
@@ -311,12 +317,7 @@ public class TapGameController : MonoBehaviour
         tileTapped = false;
     }
 
-    public void RegisterToDestroy(Tile tile)
-    {
-        tile.parentObject.SetActive(false);
-        tilesList.Remove(tile.transform);
-        garbageTiles.Add(tile);
-    }
+    
 
 
     public void TileMissed()
@@ -355,6 +356,19 @@ public class TapGameController : MonoBehaviour
         tileTouchedEvent += callback;
     }
 
+    
+
+
+
+    #region Instance cleanup
+
+    public void RegisterToDestroy(Tile tile)
+    {
+        tile.parentObject.SetActive(false);
+        tilesList.Remove(tile.transform);
+        garbageTiles.Add(tile);
+    }
+
     private void CleanGoodTiles()
     {
         foreach (Tile tile in currentCollisionTiles)
@@ -363,6 +377,36 @@ public class TapGameController : MonoBehaviour
         }
         currentCollisionTiles.Clear();
 
+    }
+
+    private void CleanAllTiles()
+    {
+        foreach (Transform trans in tilesList)
+        {
+            Destroy(trans.gameObject);
+        }
+        tilesList.Clear();
+
+        foreach (Tile tile in currentCollisionTiles)
+        {
+            Destroy(tile.parentObject);
+        }
+        currentCollisionTiles.Clear();
+    }
+
+    private void StartGarbageCollectionRoutine()
+    {
+        StartCoroutine(GarbageCountdownCoroutine());
+    }
+
+    private IEnumerator GarbageCountdownCoroutine()
+    {
+        WaitForSeconds delay = new WaitForSeconds(5);
+        while (start)
+        {
+            yield return delay;
+            mustCollectGarbage = true;
+        }
     }
 
     private void CollectGarbage()
@@ -379,6 +423,8 @@ public class TapGameController : MonoBehaviour
         garbageTiles.Clear();
         mustCollectGarbage = false;
     }
+
+    #endregion
 
     List<float> getTileTimeFromMidi()
     {
