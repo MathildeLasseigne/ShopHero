@@ -1,4 +1,5 @@
 using MidiPlayerTK;
+using MPTK.NAudio.Midi;
 using MPTKDemoCatchMusic;
 using System;
 using System.Collections;
@@ -17,7 +18,9 @@ public class MidiGameController : MonoBehaviour
 
     private float initVolume;
 
-    private Action notePlayedEvent;
+    private double tickLastNote;
+
+    private Action<bool> notePlayedEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,13 @@ public class MidiGameController : MonoBehaviour
         
     }
 
+    public void LoadMidiFile(string midiName)
+    {
+        //Load midi file
+        midiFilePlayer.MPTK_MidiName = midiName;
+        tickLastNote = midiFilePlayer.MPTK_TickLastNote;
+    }
+
     public double GetMidiBPM()
     {
         return midiFilePlayer.MPTK_Tempo;
@@ -43,6 +53,7 @@ public class MidiGameController : MonoBehaviour
     public MidiGameController SetStartJump(double startDelayMilli)
     {
         this.startJumpMilli = startDelayMilli;
+        Debug.Log("Start jump = " + startDelayMilli);
         return this;
     }
 
@@ -54,6 +65,9 @@ public class MidiGameController : MonoBehaviour
     {
     }
 
+    /// <summary>
+    /// Play the midi. Take into account the start jump
+    /// </summary>
     public void PlayMidi()
     {
         midiFilePlayer.MPTK_Play();
@@ -61,6 +75,7 @@ public class MidiGameController : MonoBehaviour
 
     private void InputMidiStartPositionMilli()
     {
+        Debug.Log("Midi do jump to start position");
         midiFilePlayer.MPTK_Position = startJumpMilli;
     }
 
@@ -102,13 +117,43 @@ public class MidiGameController : MonoBehaviour
 
     public void FilterNotePlayedMPTKEvent(List<MPTKEvent> notes)
     {
-        foreach (MPTKEvent mptkEvent in notes)
+        bool isNoteOn = false;
+        bool isLastNote = false;
+        foreach (MPTKEvent mptkEvent in notes) // Doubles or triple notes. All in the same tick
         {
             if(mptkEvent != null && mptkEvent.Command == MPTKCommand.NoteOn)
             {
-                notePlayedEvent?.Invoke();
+                isLastNote |= mptkEvent.Tick == tickLastNote;
+                //notePlayedEvent?.Invoke(isLastNote);
+                isNoteOn = true;
             }
         }
+        //Debug.Log("Notes number = " + notes.Count);
+        if (isNoteOn)
+            notePlayedEvent?.Invoke(isLastNote);
+    }
+
+    public int GetNoteNumber(int channel = -1)
+    {
+        int count = 0;
+        MidiLoad midiloaded = midiFilePlayer.MPTK_Load();
+        long currentTick = 0;
+        if (midiloaded != null)
+        {
+            List<MPTKEvent> listEvents = midiloaded.MPTK_ReadMidiEvents();
+            foreach(MPTKEvent mptkEvent in listEvents)
+            {
+                if (mptkEvent != null && mptkEvent.Command == MPTKCommand.NoteOn && (channel == -1 || (mptkEvent.Channel == channel)))
+                {
+                    if(currentTick != mptkEvent.Tick) //Avoid counting double notes
+                    {
+                        count++;
+                        currentTick = mptkEvent.Tick;
+                    }
+                }
+            }
+        }
+        return count;
     }
 
 
@@ -118,21 +163,22 @@ public class MidiGameController : MonoBehaviour
     /// </summary>
     /// <param name="distance"></param>
     /// <returns></returns>
-    public double CalculateDelayFromDistance(float distance)
+    public double CalculateDelayFromDistance(float distance, float speed)
     {
-        double speed = GetMidiBPM() / 60; // == bps == beat per second
+        //double speed = GetMidiBPM() / 60; // == bps == beat per second
         // speed == distance / time
 
-        double time = distance / speed;
+        double time = distance / speed; //sec
+        time *= 1000; //milli sec
         return time;
     }
 
-    public void SuscribeToNotePlayedEvent(Action callback)
+    public void SuscribeToNotePlayedEvent(Action<bool> callback)
     {
         notePlayedEvent += callback;
     }
 
-    public void UnsuscribeToNotePlayedEvent(Action callback)
+    public void UnsuscribeToNotePlayedEvent(Action<bool> callback)
     {
         notePlayedEvent -= callback;
     }

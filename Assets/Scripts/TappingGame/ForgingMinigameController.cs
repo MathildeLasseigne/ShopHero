@@ -7,6 +7,7 @@ public class ForgingMinigameController : MonoBehaviour
 
     [SerializeField] List<TapGameController> gameControllersList = new List<TapGameController>();
     [SerializeField] GameObject forgingTable;
+    [SerializeField] GameObject tapingSword;
 
     [SerializeField] RecipeInventoryController inventoryController;
     [SerializeField] GameObject recipeTable;
@@ -29,6 +30,8 @@ public class ForgingMinigameController : MonoBehaviour
         foreach (TapGameController controller in gameControllersList)
         {
             controller.SuscribeToTileTouchEvent(TileTouchedMinigame);
+            if (tapingSword)
+                controller.SetLaneEndPoint(tapingSword.transform);
         }
         dialogueController.SuscribeToDialogueFinishedEvent(NextStep);
         inventoryController.SuscribeToRecipeFinishedEvent(NextStep);
@@ -89,10 +92,9 @@ public class ForgingMinigameController : MonoBehaviour
             if (controller.gameObject.activeInHierarchy == false)
                 continue;
             controller.Init();
-            MainGameManager.Instance.SoundBoard.SourceTappingGame.Play();
             controller.StartGame();
-            controller.SuscribeToTileTouchEvent(TileTouchedMinigame);
         }
+        MainGameManager.Instance.SoundBoard.SourceTappingGame.Play();
     }
 
     IEnumerator StartEndEvent()

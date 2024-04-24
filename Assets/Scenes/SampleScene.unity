@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 1
-    bleuValue: 0
-    jauneValue: 3
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -223,9 +223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 6
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -401,9 +401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 3
-    bleuValue: 0
-    jauneValue: 0
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -531,9 +531,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 3
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -586,9 +586,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 2
-    bleuValue: 0
-    jauneValue: 0
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -627,6 +627,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1346726865}
+  - {fileID: 581614931}
   m_Father: {fileID: 1886714113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &236578869
@@ -720,9 +721,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 2
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -1014,6 +1015,53 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1509601207218599813, guid: 4af8dc7e1c06b284bbc431cd14b24111, type: 3}
   m_PrefabInstance: {fileID: 7025147254638179204}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &581614929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581614931}
+  - component: {fileID: 581614930}
+  m_Layer: 0
+  m_Name: MidiGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &581614930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581614929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 040251123f4f25a48a463c14312edd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midiFilePlayer: {fileID: 1128641006}
+  startJumpMilli: 0
+--- !u!4 &581614931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581614929}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1128641007}
+  m_Father: {fileID: 236578868}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &585397823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,9 +1324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 2
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -1331,9 +1379,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 1
-    jauneValue: 0
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -1623,9 +1671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 1
-    bleuValue: 0
-    jauneValue: 2
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -1753,9 +1801,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 1
-    jauneValue: 0
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -1898,6 +1946,95 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Animator: {fileID: 0}
+--- !u!1001 &1128641005
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 581614931}
+    m_Modifications:
+    - target: {fileID: 1668918397659358, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_Name
+      value: MidiFilePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: playOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: midiNameToPlay
+      value: Lucien - Clavecin
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: midiIndexToPlay
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showSpatialization
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+--- !u!114 &1128641006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+  m_PrefabInstance: {fileID: 1128641005}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb0999ab241539438b0b012d2ea9779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1128641007 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4314086310842868, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+  m_PrefabInstance: {fileID: 1128641005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1128741123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,9 +2221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 1
-    jauneValue: 0
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -2139,9 +2276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 2
-    jauneValue: 0
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -2194,9 +2331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 1
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -2377,9 +2514,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 1
-    jauneValue: 0
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -3440,9 +3577,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 1
-    bleuValue: 0
-    jauneValue: 6
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -3629,9 +3766,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 3
-    jauneValue: 0
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -3705,9 +3842,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 0
-    bleuValue: 0
-    jauneValue: 4
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -3726,7 +3863,7 @@ GameObject:
   - component: {fileID: 2093259706}
   - component: {fileID: 2093259707}
   m_Layer: 0
-  m_Name: ClientEventController
+  m_Name: ForgingEventController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3764,6 +3901,7 @@ MonoBehaviour:
   - {fileID: 264482235}
   - {fileID: 366643010}
   forgingTable: {fileID: 5161326016583601846}
+  tapingSword: {fileID: 1197370959}
   inventoryController: {fileID: 2050004088}
   recipeTable: {fileID: 2050004086}
   dialogueController: {fileID: 318805672}
@@ -3814,9 +3952,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientValue:
-    rougeValue: 1
-    bleuValue: 0
-    jauneValue: 0
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
   nameIngredient: 
   description: 
   goldValue: 0
@@ -3996,6 +4134,10 @@ PrefabInstance:
     - target: {fileID: 5784109997793425088, guid: 8776320a59565d243ac6b69ae3b73959, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 3.0740967
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863540990690497358, guid: 8776320a59565d243ac6b69ae3b73959, type: 3}
+      propertyPath: additionnalTime
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5863540990690497358, guid: 8776320a59565d243ac6b69ae3b73959, type: 3}
       propertyPath: dialogueCanvasGroup
@@ -4412,6 +4554,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 328687038849108313, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: midiController
+      value: 
+      objectReference: {fileID: 581614930}
+    - target: {fileID: 328687038849108313, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: PathToPartition
       value: Assets/Audio/Midifile/lucien/CLIP MIDI/Clavecin.mid
       objectReference: {fileID: 0}
@@ -4423,6 +4569,10 @@ PrefabInstance:
       propertyPath: addedSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1593413675203109714, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: midiController
+      value: 
+      objectReference: {fileID: 581614930}
     - target: {fileID: 1593413675203109714, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: PathToPartition
       value: Assets/Audio/Midifile/lucien/CLIP MIDI/Violons.mid
@@ -4481,14 +4631,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8368488115571762094, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: addedSpeed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8368488115571762094, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: midiController
+      value: 
+      objectReference: {fileID: 581614930}
     - target: {fileID: 8368488115571762094, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: PathToPartition
       value: Assets/Audio/Midifile/lucien/CLIP MIDI/Violoncelles.mid
       objectReference: {fileID: 0}
     - target: {fileID: 8368488115571762094, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: startDelayInSec
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368488115571762094, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      propertyPath: useRandomInstanciation
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8996827694649823254, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}

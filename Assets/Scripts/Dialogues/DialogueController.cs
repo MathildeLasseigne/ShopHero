@@ -25,6 +25,8 @@ public class DialogueController : MonoBehaviour
     private Coroutine mainCoroutine = null;
 
     private bool informEnd = true;
+
+    [SerializeField, Min(0)] private float additionnalTime = 0f;
     
 
     public void Init()
@@ -74,6 +76,7 @@ public class DialogueController : MonoBehaviour
             yield return new WaitForSeconds(dialogue.duration);
         }
 
+        yield return new WaitForSeconds(additionnalTime);
         if(informEnd)
             DialogueFinishedEvent?.Invoke();
 

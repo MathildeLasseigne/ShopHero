@@ -10,15 +10,15 @@ public class TapGameController : MonoBehaviour
     [SerializeField] GameObject tileObjectPrefab;
     [SerializeField] Transform startPoint;
 
+    public MidiGameController midiController;
+
     /// <summary>
     /// param bool : is tile long
     /// </summary>
     private Action<bool> tileTouchedEvent;
 
-    private Coroutine currentCoroutine;
-
     //Tiles collection
-    private List<Transform> tilesList = new List<Transform>();
+    [SerializeField] private List<Transform> tilesList = new List<Transform>();
     private List<Tile> currentCollisionTiles = new List<Tile>();
     private List<Tile> garbageTiles = new List<Tile>();
 
@@ -38,7 +38,7 @@ public class TapGameController : MonoBehaviour
 
     private bool start = false;
 
-    [SerializeField] int addedSpeed = 20;
+    [SerializeField] float addedSpeed = 20;
     /// <summary>
     /// beat per second
     /// </summary>
@@ -46,14 +46,21 @@ public class TapGameController : MonoBehaviour
 
     private float bps = 0;
 
+    private float laneDistance = 0;
+
+    private int noteTotalNumber = 0;
+
 
     private bool tileInCollision = false;
     private bool tileTapped = false;
 
+    //Double tiles
+
     private bool waitingForLongTile = false;
     private bool longTileInProgress = false;
 
-    
+    private bool nextIsLongTile = false; //Used for instanciation
+    [SerializeField] private int chanceForDouble = 60;
 
 
     private bool mustCollectGarbage = false;
@@ -71,7 +78,7 @@ public class TapGameController : MonoBehaviour
 
     float timeDecalage;
 
-    float speed =  0f;
+    [SerializeField] float speed =  0f;
 
     float firstWaitingTime = 0f;
 
@@ -81,6 +88,7 @@ public class TapGameController : MonoBehaviour
     [SerializeField] private bool useRandomInstanciation = true;
     [SerializeField] float startDelayInSec = 1;
 
+    public string midiName;
 
     #endregion
 
@@ -152,10 +160,10 @@ public class TapGameController : MonoBehaviour
             CollectGarbage();
     }
 
+    #region Init
+
     public void Init()
     {
-        bps = bpm / 60;
-        CollectGarbage();
 
         CleanAllTiles();
 
@@ -166,34 +174,117 @@ public class TapGameController : MonoBehaviour
         tileTapped = false;
         waitingForLongTile = false;
         longTileInProgress = false;
+        nextIsLongTile = false;
 
         Debug.Log("Parent" + startPoint.position);
 
-        this.noteWaintingTime = getTileTimeFromMidi();
-        speed = bps * addedSpeed;
-        timeDecalage = distance / speed;
+        //this.noteWaintingTime = getTileTimeFromMidi();
+        //speed = bps * addedSpeed;
+        /*timeDecalage = distance / speed;
         for (int i = 0; i < this.skipNotesTo; i++)
         {
             currentNoteIdx = i;
             firstWaitingTime += noteWaintingTime[i];
         }
-        firstWaitingTime -= timeDecalage;
+        firstWaitingTime -= timeDecalage;*/
+        if (midiController)
+            noteTotalNumber = midiController.GetNoteNumber();
+        else
+            Debug.Log("Midi controller missing !!");
 
+        LoadGame("");
+    }
+
+    public void SetLaneEndPoint(Transform laneEndPoint)
+    {
+        laneDistance = Mathf.Abs(laneEndPoint.position.x - startPoint.position.x); 
+    }
+
+    #endregion
+
+    #region Game start / end
+
+    public void LoadGame(string midiName/*params*/)
+    {
+        
+        if(!useRegularInstanciation && !useRandomInstanciation)
+        {
+            if (midiController == null)
+                Debug.Log("Midi player missing !!");
+            else
+            {
+                //midiController.LoadMidiFile(midiName);           //Load the correct file. Uncomment to set the midi file from code
+                double bpsMidi = midiController.GetMidiBPM() / 60;
+                Debug.Log("Midi bpm  = " + midiController.GetMidiBPM() + " & bps = " + bpsMidi);
+                speed = (float) bpsMidi * addedSpeed;
+                //midiController.SetStartJump(midiController.CalculateDelayFromDistance(laneDistance, speed));
+            }
+        } else
+        {
+            bps = bpm / 60;
+            speed = bps * addedSpeed;
+        }
     }
 
     public void StartGame()
     {
         start = true;
-        if (tileObjectPrefab)
+        if (tileObjectPrefab && (useRegularInstanciation || useRandomInstanciation))
             StartCoroutine(InstantiateTilesCoroutines());
+        else
+        {
+            midiController.SuscribeToNotePlayedEvent(InstantiateNewTile);
 
+            if (midiController == null)
+                Debug.Log("Midi controller missing !");
+            else
+                midiController.PlayMidi();
+        }
         StartGarbageCollectionRoutine();
-
     }
 
     public void StopGame()
     {
         start = false;
+        midiController?.Stop();
+        midiController.UnsuscribeToNotePlayedEvent(InstantiateNewTile);
+        StopAllCoroutines();
+        CleanAllTiles();
+    }
+
+    #endregion
+
+    #region Tiles
+
+
+    public void InstantiateNewTile(bool isLastNote)
+    {
+        if(isLastNote)
+        {
+            if (nextIsLongTile) //Always finish long tile
+            {
+                nextIsLongTile = false;
+                InstantiateTile(isEndLong: true);
+            }
+        } else // if difficulty allow
+        {
+            if (nextIsLongTile)
+            {
+                nextIsLongTile = false;
+                InstantiateTile(isEndLong: true);
+            }
+            else if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
+            {
+                //Debug.Log("Instantiate long");
+                nextIsLongTile = true;
+                InstantiateTile(isStartLong: true);
+            }
+            else
+            {
+                InstantiateTile();
+            }
+        }
+        
     }
 
     private IEnumerator InstantiateTilesCoroutines()
@@ -214,7 +305,7 @@ public class TapGameController : MonoBehaviour
 
             #endregion
         }
-        else
+        else if(useRandomInstanciation)
         {
             #region dynamic instanciation
 
@@ -222,22 +313,21 @@ public class TapGameController : MonoBehaviour
             
             //yield return new WaitForSeconds(firstWaitingTime);
 
-            Debug.Log("Start coroutine");
+            Debug.Log("Start random instanciation coroutine");
 
             #region Random Instanciation for tests : if useRandomInstanciation = true
 
             if (useRandomInstanciation) // For tests, else set to false
             {
-                int chanceForDouble = 60;
 
                 yield return new WaitForSeconds(startDelayInSec);
 
                 yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
 
 
-                while (start && currentNoteIdx < noteWaintingTime.Count)
+                while (start && currentNoteIdx < noteTotalNumber)
                 {
-                    if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
+                    /*if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
                     {
                         Debug.Log("Instantiate long");
                         InstantiateTile(isStartLong: true);
@@ -247,16 +337,13 @@ public class TapGameController : MonoBehaviour
                     else
                     {
                         InstantiateTile();
-                    }
+                    }*/
+                    InstantiateNewTile(false);
 
                     yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
                 }
             }
             #endregion
-            else
-            {
-                // TODO : Real instanciation
-            }
 
             /*yield return new WaitForSeconds(2);
             InstantiateTile(isStartLong: true);
@@ -351,6 +438,8 @@ public class TapGameController : MonoBehaviour
         MainGameManager.Instance.SoundBoard.SourceTappingGame.PlayOneShot(MainGameManager.Instance.SoundBoard.ClipTileTaped);
     }
 
+    #endregion
+
     public void SuscribeToTileTouchEvent(Action<bool> callback)
     {
         tileTouchedEvent += callback;
@@ -381,15 +470,19 @@ public class TapGameController : MonoBehaviour
 
     private void CleanAllTiles()
     {
+        CollectGarbage();
+
         foreach (Transform trans in tilesList)
         {
-            Destroy(trans.gameObject);
+            if(trans != null)
+                Destroy(trans.gameObject);
         }
         tilesList.Clear();
 
         foreach (Tile tile in currentCollisionTiles)
         {
-            Destroy(tile.parentObject);
+            if(tile != null)
+                Destroy(tile.parentObject);
         }
         currentCollisionTiles.Clear();
     }
