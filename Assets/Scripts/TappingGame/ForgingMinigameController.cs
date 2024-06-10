@@ -4,43 +4,85 @@ using UnityEngine;
 
 public class ForgingMinigameController : MonoBehaviour
 {
+    [Header("Forging")]
+    [SerializeField] List<TapGameController> laneOtherControllersList = new List<TapGameController>();
+    [SerializeField] private TapGameController laneRouge;
+    [SerializeField] private TapGameController laneBleue;
+    [SerializeField] private TapGameController laneJaune;
 
-    [SerializeField] List<TapGameController> gameControllersList = new List<TapGameController>();
+    [SerializeField] private MidiGameController laneRougeMidi;
+    [SerializeField] private MidiGameController laneBleueMidi;
+    [SerializeField] private MidiGameController laneJauneMidi;
+
     [SerializeField] GameObject forgingTable;
     [SerializeField] GameObject tapingSword;
 
+    [Header("Reciping")]
     [SerializeField] RecipeInventoryController inventoryController;
     [SerializeField] GameObject recipeTable;
 
+    [Header("Dialogue")]
     [SerializeField] DialogueController dialogueController;
     [SerializeField] GameObject dialogueObject;
 
+    [Header("End")]
     [SerializeField] GameObject endGameObject;
 
-    Character character;
+    Character currentCharacter;
+
+    IngredientValue currentIngredientValue = new IngredientValue();
 
     private  enum Step { Reciping, Forging, EndEvent};
 
     private Step currentStep;
 
-
-
-    public void Init()
+    public void Init(Character character)
     {
-        foreach (TapGameController controller in gameControllersList)
+        #region  lanes setup
+        foreach (TapGameController controller in laneOtherControllersList)
+        {
+            setupLane(controller);
+        }
+
+        setupLane(laneRouge);
+        setupLane(laneBleue);
+        setupLane(laneJaune);
+
+        laneRouge.SetKeyCode(Data.mainInstance.mainConfig.laneRougeTappingKey);
+        laneBleue.SetKeyCode(Data.mainInstance.mainConfig.laneBleueTappingKey);
+        laneJaune.SetKeyCode(Data.mainInstance.mainConfig.laneJauneTappingKey);
+
+        laneRouge.SetMidiController(laneRougeMidi);
+        laneBleue.SetMidiController(laneBleueMidi);
+        laneJaune.SetMidiController(laneJauneMidi);
+
+        void setupLane(TapGameController controller)
         {
             controller.SuscribeToTileTouchEvent(TileTouchedMinigame);
             if (tapingSword)
                 controller.SetLaneEndPoint(tapingSword.transform);
         }
-        dialogueController.SuscribeToDialogueFinishedEvent(NextStep);
-        inventoryController.SuscribeToRecipeFinishedEvent(NextStep);
+
+        #endregion
+
+        if (! Data.mainInstance.mainConfig.debug && ! Data.mainInstance.mainConfig.debugForgingMiniGameStopAuto)
+            dialogueController.SuscribeToDialogueFinishedEvent(NextStep);
+        inventoryController.SuscribeToRecipeFinishedEvent((ingredientValue) => 
+        {
+            SetCurrentIngredientValue(ingredientValue);
+            NextStep(); 
+        });
+
+        currentIngredientValue.RemoveAll();
+
+        this.currentCharacter = character;
+        dialogueController.SetCharacter(character);
+
+        
     }
 
-    public void StartMinigame(Character character)
+    public void StartMinigame()
     {
-        this.character = character;
-        dialogueController.SetCharacter(character);
         StartCoroutine(StartReciping());
         currentStep = Step.Reciping;
         //StartForging();
@@ -87,12 +129,27 @@ public class ForgingMinigameController : MonoBehaviour
         ShowForgingTable();
         yield return new WaitForSeconds(2); //Time of anim
 
-        foreach (TapGameController controller in gameControllersList)
+        if (laneRouge.IsShowing())
+        {
+            laneRouge.SetDifficulty((int)currentIngredientValue.rougeValue);
+            laneRouge.Init().StartGame();
+        }
+        if (laneBleue.IsShowing())
+        {
+            laneBleue.SetDifficulty((int)currentIngredientValue.bleuValue);
+            laneBleue.Init().StartGame();
+        }
+        if (laneJaune.IsShowing())
+        {
+            laneJaune.SetDifficulty((int)currentIngredientValue.jauneValue);
+            laneJaune.Init().StartGame();
+        }
+
+        foreach (TapGameController controller in laneOtherControllersList)
         {
             if (controller.gameObject.activeInHierarchy == false)
                 continue;
-            controller.Init();
-            controller.StartGame();
+            controller.Init().StartGame();
         }
         MainGameManager.Instance.SoundBoard.SourceTappingGame.Play();
     }
@@ -122,16 +179,22 @@ public class ForgingMinigameController : MonoBehaviour
     void ShowForgingTable()
     {
         forgingTable?.SetActive(true);
+        laneRouge.Show();
+        laneBleue.Show();
+        laneJaune.Show();
     }
 
     void HideForgingTable()
     {
-        foreach (TapGameController controller in gameControllersList)
+        foreach (TapGameController controller in laneOtherControllersList)
         {
             if (controller.gameObject.activeInHierarchy == false)
                 continue;
-            controller.StopGame();
+            controller.StopGame().Hide();
         }
+        laneRouge.StopGame().Hide();
+        laneBleue.StopGame().Hide();
+        laneJaune.StopGame().Hide();
 
         forgingTable?.SetActive(false);
     }
@@ -180,5 +243,8 @@ public class ForgingMinigameController : MonoBehaviour
         //MainGameManager.Instance.SoundBoard.SourceTappingGame.PlayOneShot(MainGameManager.Instance.SoundBoard.ClipTileTaped);
     }
 
-
+    private void SetCurrentIngredientValue(IngredientValue ingredient)
+    {
+        this.currentIngredientValue.Copy(ingredient);
+    }
 }

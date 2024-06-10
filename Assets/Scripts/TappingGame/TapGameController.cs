@@ -28,15 +28,14 @@ public class TapGameController : MonoBehaviour
 
     [SerializeField] KeyCode TappingKey;
 
-    [SerializeField] Difficultylvl currentDifficulty = Difficultylvl.Easy;
-
-    public enum Difficultylvl { Easy, Medium, Hard }
 
 
     [SerializeField] private bool useRegularInstanciation = false;
     [SerializeField] private float regularWaitBetweenInstanceInSec = 2f;
 
     private bool start = false;
+
+    private bool isShowing = false;
 
     [SerializeField] float addedSpeed = 20;
     /// <summary>
@@ -48,7 +47,7 @@ public class TapGameController : MonoBehaviour
 
     private float laneDistance = 0;
 
-    private int noteTotalNumber = 0;
+    private int noteTotalNumber = -1;
 
 
     private bool tileInCollision = false;
@@ -66,6 +65,18 @@ public class TapGameController : MonoBehaviour
     private bool mustCollectGarbage = false;
 
     int skipNotesTo = 5;
+
+    //Difficulty
+
+    [Header("Difficulty")]
+    [SerializeField] Difficultylvl currentDifficulty = Difficultylvl.Easy;
+
+    [SerializeField, Range(0, 100)] private int veryEasyRate = 20;
+    [SerializeField, Range(0, 100)] private int easyRate = 30;
+    [SerializeField, Range(0, 100)] private int mediumRate = 50;
+    [SerializeField, Range(0, 100)] private int hardRate = 70;
+
+    public enum Difficultylvl { VeryEasy = 0, Easy, Medium, Hard, Hell }
 
     //Midi calculations
 
@@ -162,7 +173,7 @@ public class TapGameController : MonoBehaviour
 
     #region Init
 
-    public void Init()
+    public TapGameController Init()
     {
 
         CleanAllTiles();
@@ -187,17 +198,36 @@ public class TapGameController : MonoBehaviour
             firstWaitingTime += noteWaintingTime[i];
         }
         firstWaitingTime -= timeDecalage;*/
-        if (midiController)
-            noteTotalNumber = midiController.GetNoteNumber();
-        else
-            Debug.Log("Midi controller missing !!");
+
+        
 
         LoadGame("");
+
+        return this;
     }
 
     public void SetLaneEndPoint(Transform laneEndPoint)
     {
         laneDistance = Mathf.Abs(laneEndPoint.position.x - startPoint.position.x); 
+    }
+
+    /// <summary>
+    /// Set the difficulty.
+    /// </summary>
+    /// <param name="difficulty"> range from 0 to 3</param>
+    public void SetDifficulty(int difficulty)
+    {
+        currentDifficulty = (Difficultylvl) difficulty;
+    }
+
+    public void SetKeyCode(KeyCode keyCode)
+    {
+        this.TappingKey = keyCode;
+    }
+
+    public void SetMidiController(MidiGameController controller)
+    {
+        this.midiController = controller;
     }
 
     #endregion
@@ -206,18 +236,29 @@ public class TapGameController : MonoBehaviour
 
     public void LoadGame(string midiName/*params*/)
     {
-        
-        if(!useRegularInstanciation && !useRandomInstanciation)
+        bool shouldUseMidi = !useRandomInstanciation && !useRegularInstanciation;
+
+        if (shouldUseMidi)
         {
-            if (midiController == null)
-                Debug.Log("Midi player missing !!");
-            else
+            if(midiController)
             {
                 //midiController.LoadMidiFile(midiName);           //Load the correct file. Uncomment to set the midi file from code
-                double bpsMidi = midiController.GetMidiBPM() / 60;
+
+                midiController.SetMidiTempo(Data.mainInstance.mainConfig.midiCorrectedTempo);
+                //double bpsMidi = midiController.GetMidiBPM() / 60;
+
+
+                double bpsMidi = Data.mainInstance.mainConfig.midiCorrectedTempo / 60;
                 Debug.Log("Midi bpm  = " + midiController.GetMidiBPM() + " & bps = " + bpsMidi);
                 speed = (float) bpsMidi * addedSpeed;
-                //midiController.SetStartJump(midiController.CalculateDelayFromDistance(laneDistance, speed));
+                midiController.SetStartJump(midiController.CalculateDelayFromDistance(laneDistance, speed));
+
+                noteTotalNumber = midiController.GetNoteNumber();
+
+            }
+            else
+            {
+                Debug.LogWarning("Midi controller for lane " + TappingKey + " missing !!");
             }
         } else
         {
@@ -233,60 +274,118 @@ public class TapGameController : MonoBehaviour
             StartCoroutine(InstantiateTilesCoroutines());
         else
         {
-            midiController.SuscribeToNotePlayedEvent(InstantiateNewTile);
-
-            if (midiController == null)
-                Debug.Log("Midi controller missing !");
-            else
+            if (midiController)
+            {
+                midiController.SuscribeToNotePlayedEvent(InstantiateNewTile);
                 midiController.PlayMidi();
+            }
         }
         StartGarbageCollectionRoutine();
     }
 
-    public void StopGame()
+    public TapGameController StopGame()
     {
         start = false;
         midiController?.Stop();
-        midiController.UnsuscribeToNotePlayedEvent(InstantiateNewTile);
+        midiController?.UnsuscribeToNotePlayedEvent(InstantiateNewTile);
         StopAllCoroutines();
         CleanAllTiles();
+        return this;
+    }
+
+    public bool IsOngoing()
+    {
+        return start;
+    }
+
+    public void Show()
+    {
+        isShowing = true;
+    }
+
+    public void Hide()
+    {
+        isShowing = false;
+    }
+
+    public bool IsShowing()
+    {
+        return isShowing;
     }
 
     #endregion
 
     #region Tiles
 
+    /// <summary>
+    /// Decide if the tile is instanciated depending on the difficulty.
+    /// The easier the difficulty is, the less probable it is for tiles to be instanciated.
+    /// If the last tile is a long one, it will always be instanciated
+    /// </summary>
+    /// <param name="isLastNote"></param>
+    /// <returns></returns>
+    private bool IsTileInstanciatedFromDifficulty(bool isLastNote)
+    {
+        if (currentDifficulty == Difficultylvl.Hell)
+            return true;
+        if (isLastNote && nextIsLongTile)
+            return true;
+        else
+        {
+            int randomValue = UnityEngine.Random.Range(0, 100);
+            switch(currentDifficulty)
+            {
+                case Difficultylvl.VeryEasy:
+                    return randomValue <= veryEasyRate;
+                case Difficultylvl.Easy: 
+                    return randomValue <= easyRate;
+                case Difficultylvl.Medium: 
+                    return randomValue <= mediumRate;
+                    case Difficultylvl.Hard: 
+                    return randomValue <= hardRate;
+                default: return true;
+            }
+        }
+    }
 
     public void InstantiateNewTile(bool isLastNote)
     {
-        if(isLastNote)
+        if (IsTileInstanciatedFromDifficulty(isLastNote))
         {
-            if (nextIsLongTile) //Always finish long tile
+            if (isLastNote)
             {
-                nextIsLongTile = false;
-                InstantiateTile(isEndLong: true);
+                if (nextIsLongTile) //Always finish long tile
+                {
+                    nextIsLongTile = false;
+                    InstantiateTile(isEndLong: true);
+                }
             }
-        } else // if difficulty allow
-        {
-            if (nextIsLongTile)
+            else // if difficulty allow
             {
-                nextIsLongTile = false;
-                InstantiateTile(isEndLong: true);
-            }
-            else if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
-            {
-                //Debug.Log("Instantiate long");
-                nextIsLongTile = true;
-                InstantiateTile(isStartLong: true);
-            }
-            else
-            {
-                InstantiateTile();
+                if (nextIsLongTile)
+                {
+                    nextIsLongTile = false;
+                    InstantiateTile(isEndLong: true);
+                }
+                else if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
+                {
+                    //Debug.Log("Instantiate long");
+                    nextIsLongTile = true;
+                    InstantiateTile(isStartLong: true);
+                }
+                else
+                {
+                    InstantiateTile();
+                }
             }
         }
-        
     }
 
+    /// <summary>
+    /// Used for lanes that don t depends on midi files. 2 cases : regular instanciation for the marchand, 
+    /// and random instanciation for tests
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator InstantiateTilesCoroutines()
     {
 
@@ -325,19 +424,8 @@ public class TapGameController : MonoBehaviour
                 yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
 
 
-                while (start && currentNoteIdx < noteTotalNumber)
+                while (start /* && currentNoteIdx < noteTotalNumber*/)
                 {
-                    /*if (UnityEngine.Random.Range(1, 100) <= chanceForDouble)
-                    {
-                        Debug.Log("Instantiate long");
-                        InstantiateTile(isStartLong: true);
-                        yield return new WaitForSeconds(UnityEngine.Random.Range(2, 6));
-                        InstantiateTile(isEndLong: true);
-                    }
-                    else
-                    {
-                        InstantiateTile();
-                    }*/
                     InstantiateNewTile(false);
 
                     yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
@@ -356,7 +444,6 @@ public class TapGameController : MonoBehaviour
 
             #endregion
         }
-
 
     }
 
@@ -381,7 +468,7 @@ public class TapGameController : MonoBehaviour
     /// </summary>
     /// <param name="tile"></param>
     /// <param name="isInCollision"></param>
-    /// <param name="wait"></param>
+    /// <param name="wait"> Used when a long tile begin </param>
     public void TriggerTileInCollisionZone(Tile tile, bool isInCollision, bool wait = false)
     {
         tileInCollision = isInCollision;
@@ -400,7 +487,6 @@ public class TapGameController : MonoBehaviour
             }
             currentCollisionTiles.Remove(tile);
         }
-
         tileTapped = false;
     }
 
@@ -519,36 +605,4 @@ public class TapGameController : MonoBehaviour
 
     #endregion
 
-    List<float> getTileTimeFromMidi()
-    {
-        List<float> ticks = new List<float>();
-        List<float> values = new List<float>();
-        var midiFile = new MidiFile(PathToPartition);
-        int BPM = midiFile.TicksPerQuarterNote;
-        List<float> diff = new List<float>();
-
-        foreach (var track in midiFile.Tracks)
-        {
-            foreach (var midiEvent in track.MidiEvents)
-            {
-
-                if (midiEvent.MidiEventType == MidiEventType.NoteOn)
-                {
-                    var time = midiEvent.Time;
-
-                        ticks.Add(time);
-                    // Ici, créer une liste des c après boucle puis faire apparaître notes en fonction des c
-                    Debug.Log("Lane " + TappingKey + " Time = " + midiEvent.Time);
-                }
-
-            }
-            for(int i = 0; i < ticks.Count-1; i++)
-            {
-                diff.Add(ticks[i + 1] - ticks[i]);
-            }
-        }
-        Debug.Log("Count = " + ticks.Count);
-
-        return diff;
-    }
 }

@@ -22,6 +22,21 @@ public class IngredientValue
         CheckAndRemoveNegativeValues();
     }
 
+    public IngredientValue Copy()
+    {
+        return new IngredientValue(this.rougeValue, this.bleuValue, this.jauneValue);
+    }
+
+    /// <summary>
+    /// Copy all the values of the original ingredientValue into this ingredientValue
+    /// </summary>
+    /// <param name="original"></param>
+    public void Copy(IngredientValue original)
+    {
+        RemoveAll();
+        Add(original);
+    }
+
     public void Add(IngredientValue ingredient)
     {
         rougeValue += ingredient.rougeValue;
@@ -70,7 +85,12 @@ public class IngredientValue
         jauneValue = 0;
     }
 
-    public void CapValuesAt(float maxValue)
+    public bool IsEmpty()
+    {
+        return rougeValue == 0 && bleuValue == 0 && jauneValue == 0;
+    }
+
+    public IngredientValue CapValuesAt(float maxValue)
     {
         if (rougeValue > maxValue)
             rougeValue = maxValue;
@@ -80,6 +100,8 @@ public class IngredientValue
 
         if (bleuValue > maxValue)
             bleuValue = maxValue;
+
+        return this;
     }
 
     private void CheckAndRemoveNegativeValues()

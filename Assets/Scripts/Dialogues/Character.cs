@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public Texture2D _CharacterSprite;
+    public Texture2D _CharacterTexture2D;
+    public Sprite _CharacterSprite;
 
     public List<Dialogue> DialoguesList = new List<Dialogue>();
 
     private int _nextDialogueindex = 0;
+
+    public Event currentEvent = new Event();
 
     public Dialogue GetNextDialogue()
     {
@@ -38,5 +41,11 @@ public class Character : MonoBehaviour
     public class Dialogue {
         public string text;
         public float duration;
+    }
+
+    [Serializable]
+    public class Event
+    {
+        public Ingredient ingredientTarget;
     }
 }

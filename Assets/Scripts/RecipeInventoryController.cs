@@ -16,18 +16,26 @@ public class RecipeInventoryController : MonoBehaviour
 
     [SerializeField] private Sprite endRecipeDescription;
 
+    [SerializeField] private UnityEngine.UI.Button endRecipeButton;
+
+
+    [SerializeField] private IngredientValue mixIngredientValue;
+
     private int maxIngredientValue = 3;
 
     private bool isSelected = false;
 
-    private List<Ingredient> currentIngredients = new List<Ingredient>();
+    [SerializeField] private List<Ingredient> currentIngredients = new List<Ingredient>();
 
-    private Action RecipeFinishedEvent;
+    private Action<IngredientValue> RecipeFinishedEvent;
 
     public void Init()
     {
         // Cleaning
         currentIngredients.Clear();
+        mixIngredientValue.RemoveAll();
+
+        endRecipeButton.enabled = true;
 
         for (int i = scrollViewContent.transform.childCount - 1; i >= 0; i--)
         {
@@ -57,7 +65,7 @@ public class RecipeInventoryController : MonoBehaviour
 
     void UpdateImage()
     {
-        IngredientValue value = GetMixIngredientValues();
+        IngredientValue value = GetMixIngredientValuesCaped();
 
         int step = 85; //  85 = 255/3 because 3 values
         float r = Utils.PreventGoingUnder(255 - (value.bleuValue * step), 0);
@@ -69,27 +77,22 @@ public class RecipeInventoryController : MonoBehaviour
     }
      
 
-    IngredientValue GetMixIngredientValues()
+    IngredientValue GetMixIngredientValuesCaped()
     {
-        IngredientValue value = new IngredientValue();
-        foreach(Ingredient ingredient in currentIngredients)
-        {
-            value.Add(ingredient.ingredientValue);
-        }
-        value.CapValuesAt(maxIngredientValue);
-        
-        return value;
+        return this.mixIngredientValue.Copy().CapValuesAt(maxIngredientValue);
     }
 
     public void AddIngredient(Ingredient ingredient)
     {
         currentIngredients.Add(ingredient);
+        mixIngredientValue.Add(ingredient.ingredientValue);
         UpdateImage();
     }
 
     public void RemoveIngredient(Ingredient ingredient)
     {
-        currentIngredients.Remove(ingredient); 
+        currentIngredients.Remove(ingredient);
+        mixIngredientValue.Remove(ingredient.ingredientValue);
         UpdateImage();
     }
 
@@ -117,10 +120,21 @@ public class RecipeInventoryController : MonoBehaviour
 
     public void OnClickEndRecipeDescription()
     {
-        RecipeFinishedEvent?.Invoke();
+        if (mixIngredientValue.IsEmpty())
+            return;
+        else
+        {
+            endRecipeButton.enabled = false; // prevent double click
+
+            foreach (Ingredient ingredient in currentIngredients)
+            {
+                ingredient.Use();
+            }
+            RecipeFinishedEvent?.Invoke(GetMixIngredientValuesCaped());
+        }
     }
 
-    public void SuscribeToRecipeFinishedEvent(Action callback)
+    public void SuscribeToRecipeFinishedEvent(Action<IngredientValue> callback)
     {
         RecipeFinishedEvent += callback;
     }

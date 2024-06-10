@@ -16,13 +16,15 @@ public class MainGameManager : MonoBehaviour
     public Data DynamicData = new Data();
 
     [SerializeField] TextMeshProUGUI textScore;
-    [SerializeField] Character character;
 
 
     [SerializeField] private int currentScore = 0;
 
     [SerializeField] GameObject Intro;
     [SerializeField] Animator animatorLogo;
+
+
+
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class MainGameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        DynamicData.SetSelfAsMain();
     }
 
 
@@ -51,8 +54,9 @@ public class MainGameManager : MonoBehaviour
         Intro.SetActive(false);
         yield return new WaitForSeconds(3f);
 
-        forgingMinigameController.Init();
-        forgingMinigameController.StartMinigame(character);
+        Character character = DynamicData.allCharactersList[UnityEngine.Random.Range(0, DynamicData.allCharactersList.Count - 1)]; // Choose character at random
+        forgingMinigameController.Init(character);
+        forgingMinigameController.StartMinigame();
     }
 
     public void AddToScore(int addition)
@@ -88,12 +92,23 @@ public class MainGameManager : MonoBehaviour
     }
 
 
-    [Serializable]
-    public class Data
+}
+
+[Serializable]
+public class Data
+{
+    public static Data mainInstance;
+
+    public List<Ingredient> AllIngredients;
+
+    public List<Character> allCharactersList = new List<Character>();
+
+    public Config mainConfig;
+
+    public int Gold = 0;
+
+    public void SetSelfAsMain()
     {
-        public List<Ingredient> AllIngredients;
-
-        public int Gold = 0;
+        mainInstance = this;
     }
-
 }

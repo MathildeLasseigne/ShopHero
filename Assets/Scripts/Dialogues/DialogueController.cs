@@ -6,6 +6,7 @@ using UnityEditor.Profiling;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class DialogueController : MonoBehaviour
 {
     [SerializeField] GameObject dialogueObject;
@@ -13,7 +14,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] Animator characterAnimator;
     [SerializeField] RawImage characterImage;
 
-    [SerializeField] CanvasGroup dialogueCanvasGroup;
+    private CanvasGroup dialogueCanvasGroup;
 
     private Action DialogueFinishedEvent;
 
@@ -26,8 +27,12 @@ public class DialogueController : MonoBehaviour
 
     private bool informEnd = true;
 
-    [SerializeField, Min(0)] private float additionnalTime = 0f;
-    
+
+
+    private void Awake()
+    {
+        dialogueCanvasGroup = GetComponent<CanvasGroup>();
+    }
 
     public void Init()
     {
@@ -64,7 +69,7 @@ public class DialogueController : MonoBehaviour
 
     IEnumerator MakeDialogue()
     {
-        characterImage.texture = character._CharacterSprite;
+        characterImage.texture = character._CharacterTexture2D;
 
         if (hasEntrance)
             CharacterEnter();
@@ -76,7 +81,8 @@ public class DialogueController : MonoBehaviour
             yield return new WaitForSeconds(dialogue.duration);
         }
 
-        yield return new WaitForSeconds(additionnalTime);
+        if(Data.mainInstance.mainConfig.debug)
+            yield return new WaitForSeconds(Data.mainInstance.mainConfig.debugDialogueControllerAdditionnalTime);
         if(informEnd)
             DialogueFinishedEvent?.Invoke();
 
