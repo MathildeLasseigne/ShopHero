@@ -488,6 +488,169 @@ MonoBehaviour:
       <rougeValue>k__BackingField: 3
       <bleuValue>k__BackingField: 3
       <jauneValue>k__BackingField: 3
+  dataDialogueVars:
+    boolNameVariables:
+    - IsLucienDead
+    - HasLucienLostAnArm
+    intNameVariables:
+    - LucienFavorability
+    - NumberOfTimeForgingFailed
+    stringNameVariables:
+    - CurrentFavoriteSword
+  characterData:
+    characterName: Lucien
+    reputationVarName: LucienFavorability
+    characterSpritePath: Lucien_resize
+    interventionList:
+    - uniqueID: lucien_tuto_1
+      conditionForDialogue:
+        conditionsBool:
+        - name: IsLucienDead
+          wantedValue: 0
+        - name: HasLucienLostAnArm
+          wantedValue: 0
+        conditionsString:
+        - name: CurrentFavoriteSword
+          wantedValue: Le cadeau d'anniversaire de Maman Lucinette
+        conditionsInt:
+        - name: LucienFavorability
+          supOrEqual: 0
+          strictInf: 1
+        - name: NumberOfTimeForgingFailed
+          supOrEqual: 0
+          strictInf: 1
+      dialogue:
+      - text: "Salue, humble marchand ! J'aurai besoin de votre meilleur lame, c\xE9ans
+          !"
+        duration: 4
+      - text: "Mazette ! Vous \xEAtes la source de ces canifs mal affut\xE9s ?! "
+        duration: 2
+      - text: "Comment puis-je, moi, Lucien de Tayote, Archimage de l'Acad\xE9mie
+          solaire, 3\xE8me Garant des secrets arcaniques, 11\xE8me porteur de lumi\xE8res
+          et membre du Conseil des Acad\xE9mies Royales, me d\xE9fendre face aux
+          cr\xE9atures de l'Ouest ? "
+        duration: 5
+      - text: "\xC0 la bonne hure. Je dois vous \xE9duquez proprement. "
+        duration: 3
+      - text: "\xC9coutez attentivement, mon ange : "
+        duration: 3
+      - text: "Vous n'\xEAtes pas sans savoir qu'il existe 3 \xE9l\xE9ments essentiels
+          \xE0 la magie "
+        duration: 3
+      - text: "Le M\xE9tal, agent de force, garant de la r\xE9sistance et de la duret\xE9 "
+        duration: 3
+      - text: "\xC9l\xE9ment de choix pour raser les montagnes et survivre les typhons. "
+        duration: 3
+      - text: "L'Eau, l'\xE9l\xE9ment qu'on ne peut ni trancher, ni casser et qui
+          vainc la roche, non pas, par la force mais par l'usure "
+        duration: 3
+      - text: "Sa rapidit\xE9, flexibilit\xE9 et adaptabilit\xE9 saura vous extirper
+          de plus d'un probl\xE8me. "
+        duration: 3
+      - text: "La Lumi\xE8re, le plus noble et riche des \xE9l\xE9ments, sa clart\xE9
+          n'as d'\xE9gale que son utilit\xE9 ! Dans la pr\xE9cision, elle ne fait
+          qu'exceller ! "
+        duration: 3
+      - text: 'La magie est son domaine et je ne serais douter que son support vous
+          permettra de triompher '
+        duration: 3
+      - text: "Elles forment une trinit\xE9 qui ne faudrait d\xE9sacraliser par de
+          malheureuse d\xE9cisions : Choisissez bien selon les demandes "
+        duration: 3
+      - text: "Pour cela, il faut BIEN \xC9COUTER ce qu'on vous raconte "
+        duration: 3
+      - text: "Vous n'avez pas le temps de demander \xE0 ce qu'on vous r\xE9p\xE8te,
+          votre temps est pr\xE9cieux... "
+        duration: 3
+      - text: "En outre, j'esp\xE8re que vous avez remarqu\xE9 que je n'attends pas
+          votre r\xE9action pour parler, habituez-vous y. "
+        duration: 3
+      - text: "Apr\xE8s avoir choisi vos ingr\xE9dients, il faudra forger la lame "
+        duration: 3
+      - text: "Voyons si vous avez appris la le\xE7on... "
+        duration: 3
+      - text: "J'ai besoin d'une \xE9p\xE9e pour occir un \xE9l\xE9mentaire de Titamuth,
+          de la famille des \xE9l\xE9mentaires de Terre. "
+        duration: 3
+      - text: "Ces \xE9l\xE9mentaires sont r\xE9put\xE9s pour leur t\xE9nacit\xE9
+          et leur robustesse. Leurs \xE9cailles r\xE9siste particuli\xE8rement bien
+          au lames simples. "
+        duration: 3
+      - text: "Il me faudrait plus d'impact, afin de les bouter jusqu'\xE0 de l\xE0
+          o\xF9 il viennent. "
+        duration: 3
+      - text: "Ils n'arr\xEAtent pas de nous harasser et je pense qu'une premi\xE8re
+          \xE9p\xE9e pourrait enseigner \xE0 nos gardes comment les vaincre. "
+        duration: 3
+      - text: 'Voyez-vous '
+        duration: 3
+      eventTarget:
+        ingredientTarget:
+          <rougeValue>k__BackingField: 0
+          <bleuValue>k__BackingField: 1
+          <jauneValue>k__BackingField: 1
+        consequencesIfFail:
+          modificationsBool:
+          - name: HasLucienLostAnArm
+            newValue: 1
+          modificationsString: []
+          modificationsInt:
+          - name: LucienFavorability
+            addValue: -5
+          - name: NumberOfTimeForgingFailed
+            addValue: 1
+        consequencesIfWin:
+          modificationsBool: []
+          modificationsString:
+          - name: CurrentFavoriteSword
+            newValue: "La nouvelle \xE9p\xE9e du forgeron"
+          modificationsInt:
+          - name: LucienFavorability
+            addValue: 10
+    - uniqueID: lucien_tuto_2
+      conditionForDialogue:
+        conditionsBool:
+        - name: HasLucienLostAnArm
+          wantedValue: 1
+        conditionsString: []
+        conditionsInt:
+        - name: LucienFavorability
+          supOrEqual: -5
+          strictInf: -4
+      dialogue:
+      - text: "L'\xE9p\xE9e que vous m'avez donn\xE9e... elle n'est pas tr\xE8s utile..."
+        duration: 10
+      - text: "Les \xE9l\xE9mentaires n'ont pas sourcill\xE9s !"
+        duration: 20
+      - text: "Regardez l'\xE9tat de mon bras !"
+        duration: 10
+      - text: Je veux un remplacement !
+        duration: 10
+      - text: Quelque chose assez tranchant pour me vanger !
+        duration: 20
+      eventTarget:
+        ingredientTarget:
+          <rougeValue>k__BackingField: 0
+          <bleuValue>k__BackingField: 2
+          <jauneValue>k__BackingField: 0
+        consequencesIfFail:
+          modificationsBool:
+          - name: IsLucienDead
+            newValue: 1
+          modificationsString: []
+          modificationsInt:
+          - name: LucienFavorability
+            addValue: -20
+          - name: NumberOfTimeForgingFailed
+            addValue: 1
+        consequencesIfWin:
+          modificationsBool: []
+          modificationsString:
+          - name: CurrentFavoriteSword
+            newValue: "L' \xE9p\xE9e super tranchante de la vengeance"
+          modificationsInt:
+          - name: LucienFavorability
+            addValue: 10
 --- !u!4 &834068815
 Transform:
   m_ObjectHideFlags: 0

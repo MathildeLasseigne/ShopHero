@@ -1,0 +1,257 @@
+{
+  "characterName": "Lucien",
+  "reputationVarName": "LucienFavorability",
+  "characterSpritePath": "Lucien_resize",
+  "interventionList": [
+    {
+      "uniqueID": "lucien_tuto_1",
+      "conditionForDialogue": {
+        "conditionsBool": [
+          {
+            "name": "IsLucienDead",
+            "wantedValue": false
+          },
+          {
+            "name": "HasLucienLostAnArm",
+            "wantedValue": false
+          }
+        ],
+        "conditionsString": [
+          {
+            "name": "CurrentFavoriteSword",
+            "wantedValue": "Le cadeau d'anniversaire de Maman Lucinette"
+          }
+        ],
+        "conditionsInt": [
+          {
+            "name": "LucienFavorability",
+            "supOrEqual": 0,
+            "strictInf": 1
+          },
+          {
+            "name": "NumberOfTimeForgingFailed",
+            "supOrEqual": 0,
+            "strictInf": 1
+          }
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Salue, humble marchand ! J'aurai besoin de votre meilleur lame, céans !",
+          "duration": 4
+        },
+        {
+          "text": "Mazette ! Vous êtes la source de ces canifs mal affutés ?! ",
+          "duration": 2
+        },
+        {
+          "text": "Comment puis-je, moi, Lucien de Tayote, Archimage de l'Académie solaire, 3ème Garant des secrets arcaniques, 11ème porteur de lumières et membre du Conseil des Académies Royales, me défendre face aux créatures de l'Ouest ? ",
+          "duration": 5
+        },
+        {
+          "text": "À la bonne hure. Je dois vous éduquez proprement. ",
+          "duration": 3
+        },
+        {
+          "text": "Écoutez attentivement, mon ange : ",
+          "duration": 3
+        },
+        {
+          "text": "Vous n'êtes pas sans savoir qu'il existe 3 éléments essentiels à la magie ",
+          "duration": 3
+        },
+        {
+          "text": "Le Métal, agent de force, garant de la résistance et de la dureté ",
+          "duration": 3
+        },
+        {
+          "text": "Élément de choix pour raser les montagnes et survivre les typhons. ",
+          "duration": 3
+        },
+        {
+          "text": "L'Eau, l'élément qu'on ne peut ni trancher, ni casser et qui vainc la roche, non pas, par la force mais par l'usure ",
+          "duration": 3
+        },
+        {
+          "text": "Sa rapidité, flexibilité et adaptabilité saura vous extirper de plus d'un problème. ",
+          "duration": 3
+        },
+        {
+          "text": "La Lumière, le plus noble et riche des éléments, sa clarté n'as d'égale que son utilité ! Dans la précision, elle ne fait qu'exceller ! ",
+          "duration": 3
+        },
+        {
+          "text": "La magie est son domaine et je ne serais douter que son support vous permettra de triompher ",
+          "duration": 3
+        },
+        {
+          "text": "Elles forment une trinité qui ne faudrait désacraliser par de malheureuse décisions : Choisissez bien selon les demandes ",
+          "duration": 3
+        },
+        {
+          "text": "Pour cela, il faut BIEN ÉCOUTER ce qu'on vous raconte ",
+          "duration": 3
+        },
+        {
+          "text": "Vous n'avez pas le temps de demander à ce qu'on vous répète, votre temps est précieux... ",
+          "duration": 3
+        },
+        {
+          "text": "En outre, j'espère que vous avez remarqué que je n'attends pas votre réaction pour parler, habituez-vous y. ",
+          "duration": 3
+        },
+        {
+          "text": "Après avoir choisi vos ingrédients, il faudra forger la lame ",
+          "duration": 3
+        },
+        {
+          "text": "Voyons si vous avez appris la leçon... ",
+          "duration": 3
+        },
+        {
+          "text": "J'ai besoin d'une épée pour occir un élémentaire de Titamuth, de la famille des élémentaires de Terre. ",
+          "duration": 3
+        },
+        {
+          "text": "Ces élémentaires sont réputés pour leur ténacité et leur robustesse. Leurs écailles résiste particulièrement bien au lames simples. ",
+          "duration": 3
+        },
+        {
+          "text": "Il me faudrait plus d'impact, afin de les bouter jusqu'à de là où il viennent. ",
+          "duration": 3
+        },
+        {
+          "text": "Ils n'arrêtent pas de nous harasser et je pense qu'une première épée pourrait enseigner à nos gardes comment les vaincre. ",
+          "duration": 3
+        },
+        {
+          "text": "Voyez-vous ",
+          "duration": 3
+        }
+      ],
+      "eventTarget": {
+        "ingredientTarget": {
+          "rougeValue": 0,
+          "bleuValue": 1,
+          "jauneValue": 1
+        },
+        "consequencesIfFail": {
+          "modificationsBool": [
+            {
+              "name": "HasLucienLostAnArm",
+              "newValue": true
+            }
+          ],
+          "modificationsString": [],
+          "modificationsInt": [
+            {
+              "name": "LucienFavorability",
+              "addValue": -5
+            },
+            {
+              "name": "NumberOfTimeForgingFailed",
+              "addValue": 1
+            }
+          ]
+        },
+        "consequencesIfWin": {
+          "modificationsBool": [],
+          "modificationsString": [
+            {
+              "name": "CurrentFavoriteSword",
+              "newValue": "La nouvelle épée du forgeron"
+            }
+          ],
+          "modificationsInt": [
+            {
+              "name": "LucienFavorability",
+              "addValue": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uniqueID": "lucien_tuto_2",
+      "conditionForDialogue": {
+        "conditionsBool": [
+          {
+            "name": "HasLucienLostAnArm",
+            "wantedValue": true
+          }
+        ],
+        "conditionsString": [],
+        "conditionsInt": [
+          {
+            "name": "LucienFavorability",
+            "supOrEqual": -5,
+            "strictInf": -4
+          }
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "L'épée que vous m'avez donnée... elle n'est pas très utile...",
+          "duration": 10
+        },
+        {
+          "text": "Les élémentaires n'ont pas sourcillés !",
+          "duration": 20
+        },
+        {
+          "text": "Regardez l'état de mon bras !",
+          "duration": 10
+        },
+        {
+          "text": "Je veux un remplacement !",
+          "duration": 10
+        },
+        {
+          "text": "Quelque chose assez tranchant pour me vanger !",
+          "duration": 20
+        }
+      ],
+      "eventTarget": {
+        "ingredientTarget": {
+          "rougeValue": 0,
+          "bleuValue": 2,
+          "jauneValue": 0
+        },
+        "consequencesIfFail": {
+          "modificationsBool": [
+            {
+              "name": "IsLucienDead",
+              "newValue": true
+            }
+          ],
+          "modificationsString": [],
+          "modificationsInt": [
+            {
+              "name": "LucienFavorability",
+              "addValue": -20
+            },
+            {
+              "name": "NumberOfTimeForgingFailed",
+              "addValue": 1
+            }
+          ]
+        },
+        "consequencesIfWin": {
+          "modificationsBool": [],
+          "modificationsString": [
+            {
+              "name": "CurrentFavoriteSword",
+              "newValue": "L' épée super tranchante de la vengeance"
+            }
+          ],
+          "modificationsInt": [
+            {
+              "name": "LucienFavorability",
+              "addValue": 10
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

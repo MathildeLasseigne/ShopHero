@@ -8,22 +8,23 @@ public class Character : MonoBehaviour
     public Texture2D _CharacterTexture2D;
     public Sprite _CharacterSprite;
 
-    public List<Dialogue> DialoguesList = new List<Dialogue>();
+    private string currentDialogueID;
+    public List<Speech> DialoguesList = new List<Speech>();
 
-    private int _nextDialogueindex = 0;
+    private int _nextSpeechindex = 0;
 
     public Event currentEvent = new Event();
 
-    public Dialogue GetNextDialogue()
+    public Speech GetNextDialogueSpeech()
     {
-        Dialogue dialogue = DialoguesList[_nextDialogueindex];
-        _nextDialogueindex += 1;
+        Speech dialogue = DialoguesList[_nextSpeechindex];
+        _nextSpeechindex += 1;
         return dialogue;
     }
 
-    public bool hasNextDialogue()
+    public bool hasNextDialogueSpeech()
     {
-        return _nextDialogueindex < DialoguesList.Count;
+        return _nextSpeechindex < DialoguesList.Count;
     }
     // Start is called before the first frame update
     void Start()
@@ -37,15 +38,5 @@ public class Character : MonoBehaviour
         
     }
 
-    [Serializable]
-    public class Dialogue {
-        public string text;
-        public float duration;
-    }
-
-    [Serializable]
-    public class Event
-    {
-        public Ingredient ingredientTarget;
-    }
+    
 }

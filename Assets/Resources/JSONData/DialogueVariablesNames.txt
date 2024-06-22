@@ -1,0 +1,14 @@
+{
+  "boolNameVariables": [
+    "IsLucienDead",
+    "HasLucienLostAnArm"
+    "WasLucienLastEventWon"
+  ],
+  "intNameVariables": [
+    "LucienFavorability",
+    "NumberOfTimeForgingFailed"
+  ],
+  "stringNameVariables": [
+    "CurrentFavoriteSword"
+  ]
+}

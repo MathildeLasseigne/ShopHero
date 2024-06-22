@@ -74,9 +74,9 @@ public class DialogueController : MonoBehaviour
         if (hasEntrance)
             CharacterEnter();
 
-        while (character.hasNextDialogue())
+        while (character.hasNextDialogueSpeech())
         {
-            Character.Dialogue dialogue = character.GetNextDialogue();
+            Speech dialogue = character.GetNextDialogueSpeech();
             dialogueText.SetText(dialogue.text);
             yield return new WaitForSeconds(dialogue.duration);
         }
