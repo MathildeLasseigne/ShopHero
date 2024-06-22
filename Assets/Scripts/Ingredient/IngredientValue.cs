@@ -78,6 +78,9 @@ public class IngredientValue
         CheckAndRemoveNegativeValues();
     }
 
+    /// <summary>
+    /// Set all values to 0
+    /// </summary>
     public void RemoveAll()
     {
         rougeValue = 0;

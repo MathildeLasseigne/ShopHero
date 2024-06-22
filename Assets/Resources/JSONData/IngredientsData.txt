@@ -1,0 +1,72 @@
+[
+  {
+    "uniqueID": "ing1",
+    "nameIngredient": "Juste un rouge",
+    "description": "Une rune rouge",
+    "goldValue": 2,
+    "recipeSpritePath": "Brick 3",
+    "descriptionSpritePath": "parchemin",
+    "merchandSpritePath": "",
+    "ingredientValue": {
+      "rougeValue": 1,
+      "bleuValue": 0,
+      "jauneValue": 0
+    }
+  },
+  {
+    "uniqueID": "ing2",
+    "nameIngredient": "Juste un bleu",
+    "description": "Une rune bleue",
+    "goldValue": 10,
+    "recipeSpritePath": "Brick 2",
+    "descriptionSpritePath": "parchemin",
+    "merchandSpritePath": "",
+    "ingredientValue": {
+      "rougeValue": 0,
+      "bleuValue": 1,
+      "jauneValue": 0
+    }
+  },
+  {
+    "uniqueID": "ing3",
+    "nameIngredient": "Juste un jaune",
+    "description": "Une rune jaune",
+    "goldValue": 6,
+    "recipeSpritePath": "Brick 1",
+    "descriptionSpritePath": "parchemin",
+    "merchandSpritePath": "",
+    "ingredientValue": {
+      "rougeValue": 0,
+      "bleuValue": 0,
+      "jauneValue": 1
+    }
+  },
+  {
+    "uniqueID": "ing4",
+    "nameIngredient": "Toutes couleurs",
+    "description": "Une rune de toutes les couleurs ! Génial !",
+    "goldValue": 100,
+    "recipeSpritePath": "Brick 1",
+    "descriptionSpritePath": "parchemin",
+    "merchandSpritePath": "",
+    "ingredientValue": {
+      "rougeValue": 1,
+      "bleuValue": 1,
+      "jauneValue": 1
+    }
+  },
+  {
+    "uniqueID": "ing5",
+    "nameIngredient": "Hell rune",
+    "description": "La rune la plus difficile à controller... tu va en baver",
+    "goldValue": 666,
+    "recipeSpritePath": "Brick 3",
+    "descriptionSpritePath": "parchemin",
+    "merchandSpritePath": "",
+    "ingredientValue": {
+      "rougeValue": 3,
+      "bleuValue": 3,
+      "jauneValue": 3
+    }
+  }
+]
