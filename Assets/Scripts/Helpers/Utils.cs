@@ -38,6 +38,17 @@ public class Utils : MonoBehaviour
         return max;
     }
 
+    public static float MinFloat(params float[] floaters)
+    {
+        if (floaters.Length == 0 || floaters == null) return 0f;
+        float min = floaters[0];
+        foreach (int i in floaters)
+        {
+            if (i < min) min = i;
+        }
+        return min;
+    }
+
     public static float PreventGoingUnder(float var, float min)
     {
         if (var < min)

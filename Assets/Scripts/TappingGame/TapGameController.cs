@@ -55,8 +55,14 @@ public class TapGameController : MonoBehaviour
 
     //Double tiles
 
-    private bool waitingForLongTile = false;
-    private bool longTileInProgress = false;
+    /// <summary>
+    /// Should wait for long tile
+    /// </summary>
+    private bool waitingForLongTileOrder = false;
+    /// <summary>
+    /// Key is down on long tile
+    /// </summary>
+    private bool longTileKeyDown = false;
 
     private bool nextIsLongTile = false; //Used for instanciation
     [SerializeField] private int chanceForDouble = 60;
@@ -64,7 +70,6 @@ public class TapGameController : MonoBehaviour
 
     private bool mustCollectGarbage = false;
 
-    int skipNotesTo = 5;
 
     //Difficulty
 
@@ -121,7 +126,7 @@ public class TapGameController : MonoBehaviour
 
             #region Collision
 
-            if (!waitingForLongTile)
+            if (!waitingForLongTileOrder)
             {
                 if (Input.GetKeyDown(TappingKey))
                 {
@@ -141,7 +146,7 @@ public class TapGameController : MonoBehaviour
                     if (tileInCollision)
                     {
                         tileTapped = true;
-                        longTileInProgress = true;
+                        longTileKeyDown = true;
                         TileLongTouch(true);
                     }
                     else
@@ -149,16 +154,16 @@ public class TapGameController : MonoBehaviour
                 }
                 if (Input.GetKeyUp(TappingKey))
                 {
-                    if (tileInCollision && longTileInProgress)
+                    if (tileInCollision && longTileKeyDown)
                     {
                         tileTapped = true;
-                        waitingForLongTile = false;
+                        waitingForLongTileOrder = false;
                         TileLongTouch(false);
                     }
                     else
                         currentCollisionTiles.Clear(); //Did not go up at the right moment
 
-                    longTileInProgress = false;
+                    longTileKeyDown = false;
                 }
             }
 
@@ -183,8 +188,8 @@ public class TapGameController : MonoBehaviour
         start = false;
         tileInCollision = false;
         tileTapped = false;
-        waitingForLongTile = false;
-        longTileInProgress = false;
+        waitingForLongTileOrder = false;
+        longTileKeyDown = false;
         nextIsLongTile = false;
 
         Debug.Log("Parent" + startPoint.position);
@@ -201,7 +206,7 @@ public class TapGameController : MonoBehaviour
 
         
 
-        LoadGame("");
+        //LoadGame("");
 
         return this;
     }
@@ -210,6 +215,12 @@ public class TapGameController : MonoBehaviour
     {
         laneDistance = Mathf.Abs(laneEndPoint.position.x - startPoint.position.x); 
     }
+
+    public void SetSpeedFromTempo(double tempoMidi)
+    {
+        speed = (float)tempoMidi * addedSpeed;
+    }
+
 
     /// <summary>
     /// Set the difficulty.
@@ -241,7 +252,7 @@ public class TapGameController : MonoBehaviour
         if (shouldUseMidi)
         {
             if(midiController)
-            {
+            {/*
                 //midiController.LoadMidiFile(midiName);           //Load the correct file. Uncomment to set the midi file from code
 
                 midiController.SetMidiTempo(Data.mainInstance.mainConfig.midiCorrectedTempo);
@@ -254,11 +265,11 @@ public class TapGameController : MonoBehaviour
                 midiController.SetStartJump(midiController.CalculateDelayFromDistance(laneDistance, speed));
 
                 noteTotalNumber = midiController.GetNoteNumber();
-
+*/
             }
             else
             {
-                Debug.LogWarning("Midi controller for lane " + TappingKey + " missing !!");
+                Debug.LogWarning("[TapGameController] Midi controller for lane " + TappingKey + " missing !!");
             }
         } else
         {
@@ -271,7 +282,8 @@ public class TapGameController : MonoBehaviour
     {
         start = true;
         if (tileObjectPrefab && (useRegularInstanciation || useRandomInstanciation))
-            StartCoroutine(InstantiateTilesCoroutines());
+        { //StartCoroutine(InstantiateTilesCoroutines());
+        }
         else
         {
             if (midiController)
@@ -381,6 +393,13 @@ public class TapGameController : MonoBehaviour
         }
     }
 
+
+    public void InstantiateTileFromType(RythmeInterpreter.TileType tileType)
+    {
+        nextIsLongTile = tileType.isLongStart; // == false if is endLong or single tile
+        InstantiateTile(isStartLong: tileType.isLongStart, isEndLong: tileType.isLongEnd);
+    }
+
     /// <summary>
     /// Used for lanes that don t depends on midi files. 2 cases : regular instanciation for the marchand, 
     /// and random instanciation for tests
@@ -474,7 +493,7 @@ public class TapGameController : MonoBehaviour
         tileInCollision = isInCollision;
         if (isInCollision)
         {
-            waitingForLongTile = wait;
+            waitingForLongTileOrder = wait;
             currentCollisionTiles.Add(tile);
         }
         else if (!tileTapped)
@@ -482,8 +501,8 @@ public class TapGameController : MonoBehaviour
             TileMissed();
             if (tile.isLong && tile.isEnd)
             {
-                waitingForLongTile = false; //mark end of long tile in case of miss
-                longTileInProgress = false;
+                waitingForLongTileOrder = false; //mark end of long tile in case of miss
+                longTileKeyDown = false;
             }
             currentCollisionTiles.Remove(tile);
         }
@@ -531,7 +550,31 @@ public class TapGameController : MonoBehaviour
         tileTouchedEvent += callback;
     }
 
-    
+
+    #region GetInfo
+
+
+    public float GetLaneDistance()
+    {
+        return laneDistance;
+    }
+
+    public bool GetIsNextTileLong()
+    {
+        return nextIsLongTile;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public bool GetDoNotUseMidi()
+    {
+        return useRegularInstanciation || useRandomInstanciation;
+    }
+
+    #endregion
 
 
 

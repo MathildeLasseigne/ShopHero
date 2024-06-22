@@ -2000,8 +2000,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: keepNoteOff
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
       propertyPath: playOnStart
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: keepEndTrack
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
       propertyPath: midiNameToPlay
@@ -2009,6 +2017,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
       propertyPath: midiIndexToPlay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showMidiParameter
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
@@ -3244,7 +3256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundBoard: {fileID: 236578869}
-  forgingMinigameController: {fileID: 2093259707}
+  forgingMinigameController: {fileID: 5161326016583601848}
   DynamicData:
     AllIngredients:
     - {fileID: 1320798714}
@@ -3907,7 +3919,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2093259706}
-  - component: {fileID: 2093259707}
   m_Layer: 0
   m_Name: ForgingEventController
   m_TagString: Untagged
@@ -3930,32 +3941,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1886714113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2093259707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093259705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f685ee8a8602449979d74e72a3a2e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laneOtherControllersList: []
-  laneRouge: {fileID: 372894831}
-  laneBleue: {fileID: 167794343}
-  laneJaune: {fileID: 1292018176}
-  laneRougeMidi: {fileID: 581614930}
-  laneBleueMidi: {fileID: 581614930}
-  laneJauneMidi: {fileID: 581614930}
-  forgingTable: {fileID: 5161326016583601846}
-  tapingSword: {fileID: 1197370959}
-  inventoryController: {fileID: 2050004088}
-  recipeTable: {fileID: 2050004086}
-  dialogueController: {fileID: 318805672}
-  dialogueObject: {fileID: 318805670}
-  endGameObject: {fileID: 527584788}
 --- !u!1 &2118121961
 GameObject:
   m_ObjectHideFlags: 0
@@ -4494,6 +4479,53 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6134819611332254546, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
   m_PrefabInstance: {fileID: 6790133607556433355}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5161326016583601847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161326016583601846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e6b0031d9069b448441c9f5dd5f219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneRouge: {fileID: 372894831}
+  laneBleue: {fileID: 167794343}
+  laneJaune: {fileID: 1292018176}
+  allLanes: []
+  midiController: {fileID: 581614930}
+  lanesValues:
+    <rougeValue>k__BackingField: 0
+    <bleuValue>k__BackingField: 0
+    <jauneValue>k__BackingField: 0
+  currentDifficulty: 1
+  veryEasyRate: 20
+  easyRate: 30
+  mediumRate: 50
+  hardRate: 70
+  chanceForLong: 50
+--- !u!114 &5161326016583601848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161326016583601846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f685ee8a8602449979d74e72a3a2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rythmeInterpreter: {fileID: 5161326016583601847}
+  forgingTable: {fileID: 5161326016583601846}
+  tapingSword: {fileID: 1197370959}
+  inventoryController: {fileID: 2050004088}
+  recipeTable: {fileID: 2050004086}
+  dialogueController: {fileID: 318805672}
+  dialogueObject: {fileID: 318805670}
+  endGameObject: {fileID: 527584788}
 --- !u!212 &5670769578560248589
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4608,7 +4640,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 328687038849108313, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: addedSpeed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 328687038849108313, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: midiController
@@ -4624,7 +4656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1593413675203109714, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: addedSpeed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1593413675203109714, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: midiController
@@ -4688,7 +4720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6134819611332254546, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7794286671577029078, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       propertyPath: m_Name
@@ -4742,6 +4774,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6134819611332254546, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5161326016583601848}
+    - targetCorrespondingSourceObject: {fileID: 6134819611332254546, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5161326016583601847}
     - targetCorrespondingSourceObject: {fileID: 7887596888182332643, guid: c81f209d1c629f340979d3b9e939a5cb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1197370963}

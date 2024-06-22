@@ -60,7 +60,8 @@ public class RecipeInventoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(Data.mainInstance.mainConfig.debugPassSceneKey))
+            RecipeFinishedEvent?.Invoke(new IngredientValue(1,1,1));
     }
 
     void UpdateImage()
@@ -138,6 +139,5 @@ public class RecipeInventoryController : MonoBehaviour
     {
         RecipeFinishedEvent += callback;
     }
-
 
 }

@@ -5,14 +5,16 @@ using UnityEngine;
 public class ForgingMinigameController : MonoBehaviour
 {
     [Header("Forging")]
-    [SerializeField] List<TapGameController> laneOtherControllersList = new List<TapGameController>();
+    /*[SerializeField] List<TapGameController> laneOtherControllersList = new List<TapGameController>();
     [SerializeField] private TapGameController laneRouge;
     [SerializeField] private TapGameController laneBleue;
-    [SerializeField] private TapGameController laneJaune;
+    [SerializeField] private TapGameController laneJaune;*/
 
-    [SerializeField] private MidiGameController laneRougeMidi;
+    [SerializeField] private RythmeInterpreter rythmeInterpreter;
+
+    /*[SerializeField] private MidiGameController laneRougeMidi;
     [SerializeField] private MidiGameController laneBleueMidi;
-    [SerializeField] private MidiGameController laneJauneMidi;
+    [SerializeField] private MidiGameController laneJauneMidi;*/
 
     [SerializeField] GameObject forgingTable;
     [SerializeField] GameObject tapingSword;
@@ -39,22 +41,25 @@ public class ForgingMinigameController : MonoBehaviour
     public void Init(Character character)
     {
         #region  lanes setup
-        foreach (TapGameController controller in laneOtherControllersList)
+        /*foreach (TapGameController controller in laneOtherControllersList)
         {
             setupLane(controller);
         }
 
         setupLane(laneRouge);
         setupLane(laneBleue);
-        setupLane(laneJaune);
+        setupLane(laneJaune);*/
+        rythmeInterpreter.allLanes.ForEach(l => setupLane(l));
 
-        laneRouge.SetKeyCode(Data.mainInstance.mainConfig.laneRougeTappingKey);
-        laneBleue.SetKeyCode(Data.mainInstance.mainConfig.laneBleueTappingKey);
-        laneJaune.SetKeyCode(Data.mainInstance.mainConfig.laneJauneTappingKey);
+        rythmeInterpreter.laneRouge.SetKeyCode(Data.mainInstance.mainConfig.laneRougeTappingKey);
+        rythmeInterpreter.laneBleue.SetKeyCode(Data.mainInstance.mainConfig.laneBleueTappingKey);
+        rythmeInterpreter.laneJaune.SetKeyCode(Data.mainInstance.mainConfig.laneJauneTappingKey);
 
-        laneRouge.SetMidiController(laneRougeMidi);
+        rythmeInterpreter.Init();
+
+        /*laneRouge.SetMidiController(laneRougeMidi);
         laneBleue.SetMidiController(laneBleueMidi);
-        laneJaune.SetMidiController(laneJauneMidi);
+        laneJaune.SetMidiController(laneJauneMidi);*/
 
         void setupLane(TapGameController controller)
         {
@@ -129,7 +134,7 @@ public class ForgingMinigameController : MonoBehaviour
         ShowForgingTable();
         yield return new WaitForSeconds(2); //Time of anim
 
-        if (laneRouge.IsShowing())
+        /*if (laneRouge.IsShowing())
         {
             laneRouge.SetDifficulty((int)currentIngredientValue.rougeValue);
             laneRouge.Init().StartGame();
@@ -143,14 +148,18 @@ public class ForgingMinigameController : MonoBehaviour
         {
             laneJaune.SetDifficulty((int)currentIngredientValue.jauneValue);
             laneJaune.Init().StartGame();
-        }
+        }*/
 
+        rythmeInterpreter.SetLanesValues(currentIngredientValue).LoadGame("");
+
+        rythmeInterpreter.StartGame();
+/*
         foreach (TapGameController controller in laneOtherControllersList)
         {
             if (controller.gameObject.activeInHierarchy == false)
                 continue;
             controller.Init().StartGame();
-        }
+        }*/
         MainGameManager.Instance.SoundBoard.SourceTappingGame.Play();
     }
 
@@ -179,22 +188,25 @@ public class ForgingMinigameController : MonoBehaviour
     void ShowForgingTable()
     {
         forgingTable?.SetActive(true);
-        laneRouge.Show();
+        rythmeInterpreter.allLanes.ForEach(l => l.Show());
+        /*laneRouge.Show();
         laneBleue.Show();
-        laneJaune.Show();
+        laneJaune.Show();*/
     }
 
     void HideForgingTable()
     {
-        foreach (TapGameController controller in laneOtherControllersList)
+        /*foreach (TapGameController controller in laneOtherControllersList)
         {
             if (controller.gameObject.activeInHierarchy == false)
                 continue;
             controller.StopGame().Hide();
-        }
-        laneRouge.StopGame().Hide();
+        }*/
+        /*laneRouge.StopGame().Hide();
         laneBleue.StopGame().Hide();
-        laneJaune.StopGame().Hide();
+        laneJaune.StopGame().Hide();*/
+        rythmeInterpreter.StopGame();
+        rythmeInterpreter.allLanes.ForEach(l => l.Hide());
 
         forgingTable?.SetActive(false);
     }

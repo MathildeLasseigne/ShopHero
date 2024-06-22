@@ -16,6 +16,8 @@ public class Config : ScriptableObject
     public bool debugForgingMiniGameStopAuto = false;
     [Min(0)] public float debugDialogueControllerAdditionnalTime = 0f;
 
+    public KeyCode debugPassSceneKey = KeyCode.None;
+
 
 
     [Header("Forging lanes")]

@@ -15,6 +15,7 @@ MonoBehaviour:
   debug: 1
   debugForgingMiniGameStopAuto: 0
   debugDialogueControllerAdditionnalTime: 40.02
+  debugPassSceneKey: 112
   laneRougeTappingKey: 97
   laneBleueTappingKey: 115
   laneJauneTappingKey: 100
