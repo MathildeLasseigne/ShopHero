@@ -85,7 +85,7 @@ public class DialogueSystemVariableModificationList
 
 [Serializable]
 /// <summary>
-/// Should be used at the end of a dialogue json to check if the current dialogues options can start the following dialogue.
+/// Should be used at the beginning of a dialogue json to check if the current dialogues options can start the following dialogue.
 /// </summary>
 public class DialogueSystemVariableConditionList
 {

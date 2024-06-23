@@ -24,9 +24,13 @@ public class LoadingManager : MonoBehaviour
 
     [SerializeField] string IngredientDataPath = "IngredientsData";
 
+    [SerializeField] string CharactersDataFolderPath = "Characters"; 
+
+    [SerializeField] string characterSpriteFolderPath = "Sprites/Characters/";
 
 
-    
+
+
 
 
 
@@ -45,6 +49,6 @@ public class LoadingManager : MonoBehaviour
     [ContextMenu("Load")]
     public void Load()
     {
-        GameData.Load(null, JsonDataPath, IngredientDataPath, IngredientSpriteFolderPath);
+        GameData.Load(null, JsonDataPath, IngredientDataPath, IngredientSpriteFolderPath, CharactersDataFolderPath, characterSpriteFolderPath);
     }
 }

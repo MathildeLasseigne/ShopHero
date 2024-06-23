@@ -4,27 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class CharacterData
+public class CharacterData //Base class for the character. All data about the character can be found in this class
 {
     public string characterName;
-    public string reputationVarName;
+    public string reputationVarName; //to find and modify it easily 
 
-    public string characterSpritePath;
+    public string characterSpritePath; //Sprite is image. *The name of the image* (can add the path relative to the usual repository if not in this repository, but not usefull yet)
 
-    public List<Intervention> interventionList;
+    public List<Intervention> interventionList; //The character enter the shop and ask for a weapon
 
 }
 
 [Serializable]
 public class Intervention
 {
-    public string uniqueID;
+    public string uniqueID; //Unique id, to make sure a dialogue is not played twice ! And to handle saving the game state
 
-    public DialogueSystemVariableConditionList conditionForDialogue;
+    public DialogueSystemVariableConditionList conditionForDialogue; //Conditions to enter the dialogue. The basis of the dialogue system. Default are false, "", 0
 
-    public List<Speech> dialogue;
+    public List<Speech> dialogue; //The dialogue itself
 
-    public Event eventTarget;
+    public Event eventTarget; //The game related info, and how to modify the dialogue system variables
+
+    public List<QuestionFavorability> questionFavorabilityList; //Questions asked at the end of the game. List can be empty
 
     public bool Equals(Intervention other)
     {
@@ -47,5 +49,22 @@ public class Event
     public IngredientValue ingredientTarget;
     public DialogueSystemVariableModificationList consequencesIfFail;
     public DialogueSystemVariableModificationList consequencesIfWin;
+
+}
+
+[Serializable]
+public class QuestionFavorability
+{
+    public string questionText;
+    public int answerIdx; //Start at 0, index corresponding to the list below. The correct answer
+    public List<AnswerFavorability> answersOptionList;
+}
+
+[Serializable]
+public class AnswerFavorability
+{
+    public string answerText;
+    public string characterReactionText;//What will the character answer to your choice ?. Can be empty (characterReactionText = "")
+    public DialogueSystemVariableModificationList consequencesIfChoosed;
 
 }

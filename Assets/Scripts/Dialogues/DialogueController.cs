@@ -69,7 +69,7 @@ public class DialogueController : MonoBehaviour
 
     IEnumerator MakeDialogue()
     {
-        characterImage.texture = character._CharacterTexture2D;
+        characterImage.texture = character._CharacterSprite.texture;
 
         if (hasEntrance)
             CharacterEnter();

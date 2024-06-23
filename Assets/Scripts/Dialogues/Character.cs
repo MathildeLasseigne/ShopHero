@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+[Serializable]
+public class Character
 {
-    public Texture2D _CharacterTexture2D;
+    [SerializeField, Tooltip("The name to be displayed in the editor")] private string nameForEditor = "";
+
     public Sprite _CharacterSprite;
 
     private string currentDialogueID;
@@ -13,7 +16,19 @@ public class Character : MonoBehaviour
 
     private int _nextSpeechindex = 0;
 
-    public Event currentEvent = new Event();
+    [SerializeField] private CharacterData _characterData;
+
+    public Character(CharacterData characterData)
+    {
+        _characterData = characterData;
+        nameForEditor = characterData.characterName;
+    }
+
+    public void Load(string characterSpriteFolderPath)
+    {
+        _CharacterSprite = Resources.Load<Sprite>(Path.Combine(characterSpriteFolderPath, _characterData.characterSpritePath));
+
+    }
 
     public Speech GetNextDialogueSpeech()
     {
@@ -26,16 +41,10 @@ public class Character : MonoBehaviour
     {
         return _nextSpeechindex < DialoguesList.Count;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void ArchiveCurrentDialogue()
     {
-        
+        //TODO remove current dialogue from dialogue list. To do at the end of a game
     }
 
     

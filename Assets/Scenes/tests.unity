@@ -607,6 +607,36 @@ MonoBehaviour:
           modificationsInt:
           - name: LucienFavorability
             addValue: 10
+      questionFavorabilityList:
+      - questionText: Quel monstre suis-je parti chasser ?
+        answerIdx: 1
+        answersOptionList:
+        - answerText: Maman Lucinette
+          characterReactionText: Certainement pas !! Et comment la connaissez vous
+            ?!
+          consequencesIfChoosed:
+            modificationsBool: []
+            modificationsString: []
+            modificationsInt:
+            - name: LucienFavorability
+              addValue: -5
+        - answerText: "Des \xE9l\xE9mentaires"
+          characterReactionText: "Exactement ! Vous avez bien \xE9cout\xE9"
+          consequencesIfChoosed:
+            modificationsBool: []
+            modificationsString: []
+            modificationsInt:
+            - name: LucienFavorability
+              addValue: 5
+        - answerText: "Des l\xE9zards"
+          characterReactionText: "J'ai autre chose \xE0 faire que de chasser ces
+            bestioles"
+          consequencesIfChoosed:
+            modificationsBool: []
+            modificationsString: []
+            modificationsInt:
+            - name: LucienFavorability
+              addValue: -3
     - uniqueID: lucien_tuto_2
       conditionForDialogue:
         conditionsBool:
@@ -626,7 +656,7 @@ MonoBehaviour:
         duration: 10
       - text: Je veux un remplacement !
         duration: 10
-      - text: Quelque chose assez tranchant pour me vanger !
+      - text: Quelque chose assez tranchant pour me venger !
         duration: 20
       eventTarget:
         ingredientTarget:
@@ -651,6 +681,7 @@ MonoBehaviour:
           modificationsInt:
           - name: LucienFavorability
             addValue: 10
+      questionFavorabilityList: []
 --- !u!4 &834068815
 Transform:
   m_ObjectHideFlags: 0
@@ -696,8 +727,284 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66ec90550e664845b0be84beab122ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterList: []
-  ingredientsList: []
+  characterList:
+  - nameForEditor: Lucien
+    _CharacterSprite: {fileID: 21300000, guid: f08e5a95b4a577f43b50ae1ded2e5163, type: 3}
+    DialoguesList: []
+    _characterData:
+      characterName: Lucien
+      reputationVarName: LucienFavorability
+      characterSpritePath: Lucien_resize
+      interventionList:
+      - uniqueID: lucien_tuto_1
+        conditionForDialogue:
+          conditionsBool:
+          - name: IsLucienDead
+            wantedValue: 0
+          - name: HasLucienLostAnArm
+            wantedValue: 0
+          conditionsString:
+          - name: CurrentFavoriteSword
+            wantedValue: Le cadeau d'anniversaire de Maman Lucinette
+          conditionsInt:
+          - name: LucienFavorability
+            supOrEqual: 0
+            strictInf: 1
+          - name: NumberOfTimeForgingFailed
+            supOrEqual: 0
+            strictInf: 1
+        dialogue:
+        - text: "Salue, humble marchand ! J'aurai besoin de votre meilleur lame,
+            c\xE9ans !"
+          duration: 4
+        - text: "Mazette ! Vous \xEAtes la source de ces canifs mal affut\xE9s ?! "
+          duration: 2
+        - text: "Comment puis-je, moi, Lucien de Tayote, Archimage de l'Acad\xE9mie
+            solaire, 3\xE8me Garant des secrets arcaniques, 11\xE8me porteur de lumi\xE8res
+            et membre du Conseil des Acad\xE9mies Royales, me d\xE9fendre face aux
+            cr\xE9atures de l'Ouest ? "
+          duration: 5
+        - text: "\xC0 la bonne hure. Je dois vous \xE9duquez proprement. "
+          duration: 3
+        - text: "\xC9coutez attentivement, mon ange : "
+          duration: 3
+        - text: "Vous n'\xEAtes pas sans savoir qu'il existe 3 \xE9l\xE9ments essentiels
+            \xE0 la magie "
+          duration: 3
+        - text: "Le M\xE9tal, agent de force, garant de la r\xE9sistance et de la
+            duret\xE9 "
+          duration: 3
+        - text: "\xC9l\xE9ment de choix pour raser les montagnes et survivre les
+            typhons. "
+          duration: 3
+        - text: "L'Eau, l'\xE9l\xE9ment qu'on ne peut ni trancher, ni casser et qui
+            vainc la roche, non pas, par la force mais par l'usure "
+          duration: 3
+        - text: "Sa rapidit\xE9, flexibilit\xE9 et adaptabilit\xE9 saura vous extirper
+            de plus d'un probl\xE8me. "
+          duration: 3
+        - text: "La Lumi\xE8re, le plus noble et riche des \xE9l\xE9ments, sa clart\xE9
+            n'as d'\xE9gale que son utilit\xE9 ! Dans la pr\xE9cision, elle ne fait
+            qu'exceller ! "
+          duration: 3
+        - text: 'La magie est son domaine et je ne serais douter que son support
+            vous permettra de triompher '
+          duration: 3
+        - text: "Elles forment une trinit\xE9 qui ne faudrait d\xE9sacraliser par
+            de malheureuse d\xE9cisions : Choisissez bien selon les demandes "
+          duration: 3
+        - text: "Pour cela, il faut BIEN \xC9COUTER ce qu'on vous raconte "
+          duration: 3
+        - text: "Vous n'avez pas le temps de demander \xE0 ce qu'on vous r\xE9p\xE8te,
+            votre temps est pr\xE9cieux... "
+          duration: 3
+        - text: "En outre, j'esp\xE8re que vous avez remarqu\xE9 que je n'attends
+            pas votre r\xE9action pour parler, habituez-vous y. "
+          duration: 3
+        - text: "Apr\xE8s avoir choisi vos ingr\xE9dients, il faudra forger la lame "
+          duration: 3
+        - text: "Voyons si vous avez appris la le\xE7on... "
+          duration: 3
+        - text: "J'ai besoin d'une \xE9p\xE9e pour occir un \xE9l\xE9mentaire de
+            Titamuth, de la famille des \xE9l\xE9mentaires de Terre. "
+          duration: 3
+        - text: "Ces \xE9l\xE9mentaires sont r\xE9put\xE9s pour leur t\xE9nacit\xE9
+            et leur robustesse. Leurs \xE9cailles r\xE9siste particuli\xE8rement
+            bien au lames simples. "
+          duration: 3
+        - text: "Il me faudrait plus d'impact, afin de les bouter jusqu'\xE0 de l\xE0
+            o\xF9 il viennent. "
+          duration: 3
+        - text: "Ils n'arr\xEAtent pas de nous harasser et je pense qu'une premi\xE8re
+            \xE9p\xE9e pourrait enseigner \xE0 nos gardes comment les vaincre. "
+          duration: 3
+        - text: 'Voyez-vous '
+          duration: 3
+        eventTarget:
+          ingredientTarget:
+            <rougeValue>k__BackingField: 0
+            <bleuValue>k__BackingField: 1
+            <jauneValue>k__BackingField: 1
+          consequencesIfFail:
+            modificationsBool:
+            - name: HasLucienLostAnArm
+              newValue: 1
+            modificationsString: []
+            modificationsInt:
+            - name: LucienFavorability
+              addValue: -5
+            - name: NumberOfTimeForgingFailed
+              addValue: 1
+          consequencesIfWin:
+            modificationsBool: []
+            modificationsString:
+            - name: CurrentFavoriteSword
+              newValue: "La nouvelle \xE9p\xE9e du forgeron"
+            modificationsInt:
+            - name: LucienFavorability
+              addValue: 10
+        questionFavorabilityList:
+        - questionText: Quel monstre suis-je parti chasser ?
+          answerIdx: 1
+          answersOptionList:
+          - answerText: Maman Lucinette
+            characterReactionText: Certainement pas !! Et comment la connaissez vous
+              ?!
+            consequencesIfChoosed:
+              modificationsBool: []
+              modificationsString: []
+              modificationsInt:
+              - name: LucienFavorability
+                addValue: -5
+          - answerText: "Des \xE9l\xE9mentaires"
+            characterReactionText: "Exactement ! Vous avez bien \xE9cout\xE9"
+            consequencesIfChoosed:
+              modificationsBool: []
+              modificationsString: []
+              modificationsInt:
+              - name: LucienFavorability
+                addValue: 5
+          - answerText: "Des l\xE9zards"
+            characterReactionText: "J'ai autre chose \xE0 faire que de chasser ces
+              bestioles"
+            consequencesIfChoosed:
+              modificationsBool: []
+              modificationsString: []
+              modificationsInt:
+              - name: LucienFavorability
+                addValue: -3
+      - uniqueID: lucien_tuto_2
+        conditionForDialogue:
+          conditionsBool:
+          - name: HasLucienLostAnArm
+            wantedValue: 1
+          conditionsString: []
+          conditionsInt:
+          - name: LucienFavorability
+            supOrEqual: -5
+            strictInf: -4
+        dialogue:
+        - text: "L'\xE9p\xE9e que vous m'avez donn\xE9e... elle n'est pas tr\xE8s
+            utile..."
+          duration: 10
+        - text: "Les \xE9l\xE9mentaires n'ont pas sourcill\xE9s !"
+          duration: 20
+        - text: "Regardez l'\xE9tat de mon bras !"
+          duration: 10
+        - text: Je veux un remplacement !
+          duration: 10
+        - text: Quelque chose assez tranchant pour me venger !
+          duration: 20
+        eventTarget:
+          ingredientTarget:
+            <rougeValue>k__BackingField: 0
+            <bleuValue>k__BackingField: 2
+            <jauneValue>k__BackingField: 0
+          consequencesIfFail:
+            modificationsBool:
+            - name: IsLucienDead
+              newValue: 1
+            modificationsString: []
+            modificationsInt:
+            - name: LucienFavorability
+              addValue: -20
+            - name: NumberOfTimeForgingFailed
+              addValue: 1
+          consequencesIfWin:
+            modificationsBool: []
+            modificationsString:
+            - name: CurrentFavoriteSword
+              newValue: "L' \xE9p\xE9e super tranchante de la vengeance"
+            modificationsInt:
+            - name: LucienFavorability
+              addValue: 10
+        questionFavorabilityList: []
+  ingredientsList:
+  - nameForEditor: Juste un rouge
+    ingredientData:
+      uniqueID: ing1
+      nameIngredient: Juste un rouge
+      description: Une rune rouge
+      goldValue: 2
+      recipeSpritePath: Brick 3
+      descriptionSpritePath: parchemin
+      merchandSpritePath: 
+      ingredientValue:
+        <rougeValue>k__BackingField: 1
+        <bleuValue>k__BackingField: 0
+        <jauneValue>k__BackingField: 0
+    nbInInventory: 0
+    recipeSprite: {fileID: 21300000, guid: 9ddbb38b451d07e498d99c269d8106f2, type: 3}
+    descriptionSprite: {fileID: 21300000, guid: 917a740c8249e4942ae8378e5250aee1, type: 3}
+    merchandSprite: {fileID: 0}
+  - nameForEditor: Juste un bleu
+    ingredientData:
+      uniqueID: ing2
+      nameIngredient: Juste un bleu
+      description: Une rune bleue
+      goldValue: 10
+      recipeSpritePath: Brick 2
+      descriptionSpritePath: parchemin
+      merchandSpritePath: 
+      ingredientValue:
+        <rougeValue>k__BackingField: 0
+        <bleuValue>k__BackingField: 1
+        <jauneValue>k__BackingField: 0
+    nbInInventory: 0
+    recipeSprite: {fileID: 21300000, guid: 91b39717ed5c04847aacc616d488230d, type: 3}
+    descriptionSprite: {fileID: 21300000, guid: 917a740c8249e4942ae8378e5250aee1, type: 3}
+    merchandSprite: {fileID: 0}
+  - nameForEditor: Juste un jaune
+    ingredientData:
+      uniqueID: ing3
+      nameIngredient: Juste un jaune
+      description: Une rune jaune
+      goldValue: 6
+      recipeSpritePath: Brick 1
+      descriptionSpritePath: parchemin
+      merchandSpritePath: 
+      ingredientValue:
+        <rougeValue>k__BackingField: 0
+        <bleuValue>k__BackingField: 0
+        <jauneValue>k__BackingField: 1
+    nbInInventory: 0
+    recipeSprite: {fileID: 21300000, guid: 4c143832e2dbf6b4d8f5d934572a3716, type: 3}
+    descriptionSprite: {fileID: 21300000, guid: 917a740c8249e4942ae8378e5250aee1, type: 3}
+    merchandSprite: {fileID: 0}
+  - nameForEditor: Toutes couleurs
+    ingredientData:
+      uniqueID: ing4
+      nameIngredient: Toutes couleurs
+      description: "Une rune de toutes les couleurs ! G\uFFFDnial !"
+      goldValue: 100
+      recipeSpritePath: Brick 1
+      descriptionSpritePath: parchemin
+      merchandSpritePath: 
+      ingredientValue:
+        <rougeValue>k__BackingField: 1
+        <bleuValue>k__BackingField: 1
+        <jauneValue>k__BackingField: 1
+    nbInInventory: 0
+    recipeSprite: {fileID: 21300000, guid: 4c143832e2dbf6b4d8f5d934572a3716, type: 3}
+    descriptionSprite: {fileID: 21300000, guid: 917a740c8249e4942ae8378e5250aee1, type: 3}
+    merchandSprite: {fileID: 0}
+  - nameForEditor: Hell rune
+    ingredientData:
+      uniqueID: ing5
+      nameIngredient: Hell rune
+      description: "La rune la plus difficile \uFFFD controller... tu va en baver"
+      goldValue: 666
+      recipeSpritePath: Brick 3
+      descriptionSpritePath: parchemin
+      merchandSpritePath: 
+      ingredientValue:
+        <rougeValue>k__BackingField: 3
+        <bleuValue>k__BackingField: 3
+        <jauneValue>k__BackingField: 3
+    nbInInventory: 0
+    recipeSprite: {fileID: 21300000, guid: 9ddbb38b451d07e498d99c269d8106f2, type: 3}
+    descriptionSprite: {fileID: 21300000, guid: 917a740c8249e4942ae8378e5250aee1, type: 3}
+    merchandSprite: {fileID: 0}
 --- !u!114 &943807195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,6 +1024,8 @@ MonoBehaviour:
   IngredientSpriteFolderPath: Sprites/Ingredients/
   JsonDataPath: JSONData/
   IngredientDataPath: IngredientsData
+  CharactersDataFolderPath: Characters
+  characterSpriteFolderPath: Sprites/Characters/
 --- !u!4 &943807196
 Transform:
   m_ObjectHideFlags: 0

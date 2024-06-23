@@ -169,7 +169,57 @@
             }
           ]
         }
-      }
+      },
+      "questionFavorabilityList": [
+        {
+          "questionText": "Quel monstre suis-je parti chasser ?",
+          "answerIdx": 1,
+          "answersOptionList": [
+            {
+              "answerText": "Maman Lucinette",
+              "characterReactionText": "Certainement pas !! Et comment la connaissez vous ?!",
+              "consequencesIfChoosed": {
+                "modificationsBool": [],
+                "modificationsString": [],
+                "modificationsInt": [
+                  {
+                    "name": "LucienFavorability",
+                    "addValue": -5
+                  }
+                ]
+              }
+            },
+            {
+              "answerText": "Des élémentaires",
+              "characterReactionText": "Exactement ! Vous avez bien écouté",
+              "consequencesIfChoosed": {
+                "modificationsBool": [],
+                "modificationsString": [],
+                "modificationsInt": [
+                  {
+                    "name": "LucienFavorability",
+                    "addValue": 5
+                  }
+                ]
+              }
+            },
+            {
+              "answerText": "Des lézards",
+              "characterReactionText": "J'ai autre chose à faire que de chasser ces bestioles",
+              "consequencesIfChoosed": {
+                "modificationsBool": [],
+                "modificationsString": [],
+                "modificationsInt": [
+                  {
+                    "name": "LucienFavorability",
+                    "addValue": -3
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "uniqueID": "lucien_tuto_2",
@@ -207,7 +257,7 @@
           "duration": 10
         },
         {
-          "text": "Quelque chose assez tranchant pour me vanger !",
+          "text": "Quelque chose assez tranchant pour me venger !",
           "duration": 20
         }
       ],
@@ -251,7 +301,8 @@
             }
           ]
         }
-      }
+      },
+      "questionFavorabilityList": []
     }
   ]
 }
