@@ -55,8 +55,9 @@ public class Event
 [Serializable]
 public class QuestionFavorability
 {
-    public string questionText;
-    public int answerIdx; //Start at 0, index corresponding to the list below. The correct answer
+    public Speech questionText;
+    public int answerListIdx; //Start at 0, to create heart reaction when good answer
+    public DialogueSystemVariableConditionList conditionForQuestion;
     public List<AnswerFavorability> answersOptionList;
 }
 
@@ -64,7 +65,7 @@ public class QuestionFavorability
 public class AnswerFavorability
 {
     public string answerText;
-    public string characterReactionText;//What will the character answer to your choice ?. Can be empty (characterReactionText = "")
+    public Speech characterReactionText;//What will the character answer to your choice ?. Can be empty (characterReactionText = "")
     public DialogueSystemVariableModificationList consequencesIfChoosed;
 
 }

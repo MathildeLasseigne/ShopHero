@@ -608,12 +608,19 @@ MonoBehaviour:
           - name: LucienFavorability
             addValue: 10
       questionFavorabilityList:
-      - questionText: Quel monstre suis-je parti chasser ?
-        answerIdx: 1
+      - questionText:
+          text: Quel monstre suis-je parti chasser ?
+          duration: 3
+        answerListIdx: 1
+        conditionForQuestion:
+          conditionsBool: []
+          conditionsString: []
+          conditionsInt: []
         answersOptionList:
         - answerText: Maman Lucinette
-          characterReactionText: Certainement pas !! Et comment la connaissez vous
-            ?!
+          characterReactionText:
+            text: Certainement pas !! Et comment la connaissez vous ?!
+            duration: 3
           consequencesIfChoosed:
             modificationsBool: []
             modificationsString: []
@@ -621,7 +628,9 @@ MonoBehaviour:
             - name: LucienFavorability
               addValue: -5
         - answerText: "Des \xE9l\xE9mentaires"
-          characterReactionText: "Exactement ! Vous avez bien \xE9cout\xE9"
+          characterReactionText:
+            text: "Exactement ! Vous avez bien \xE9cout\xE9"
+            duration: 3
           consequencesIfChoosed:
             modificationsBool: []
             modificationsString: []
@@ -629,8 +638,9 @@ MonoBehaviour:
             - name: LucienFavorability
               addValue: 5
         - answerText: "Des l\xE9zards"
-          characterReactionText: "J'ai autre chose \xE0 faire que de chasser ces
-            bestioles"
+          characterReactionText:
+            text: "J'ai autre chose \xE0 faire que de chasser ces bestioles"
+            duration: 3
           consequencesIfChoosed:
             modificationsBool: []
             modificationsString: []
@@ -844,29 +854,39 @@ MonoBehaviour:
             - name: LucienFavorability
               addValue: 10
         questionFavorabilityList:
-        - questionText: Quel monstre suis-je parti chasser ?
-          answerIdx: 1
+        - questionText:
+            text: 
+            duration: 0
+          answerListIdx: 0
+          conditionForQuestion:
+            conditionsBool: []
+            conditionsString: []
+            conditionsInt: []
           answersOptionList:
-          - answerText: Maman Lucinette
-            characterReactionText: Certainement pas !! Et comment la connaissez vous
-              ?!
+          - answerText: 
+            characterReactionText:
+              text: 
+              duration: 0
             consequencesIfChoosed:
               modificationsBool: []
               modificationsString: []
               modificationsInt:
               - name: LucienFavorability
                 addValue: -5
-          - answerText: "Des \xE9l\xE9mentaires"
-            characterReactionText: "Exactement ! Vous avez bien \xE9cout\xE9"
+          - answerText: 
+            characterReactionText:
+              text: 
+              duration: 0
             consequencesIfChoosed:
               modificationsBool: []
               modificationsString: []
               modificationsInt:
               - name: LucienFavorability
                 addValue: 5
-          - answerText: "Des l\xE9zards"
-            characterReactionText: "J'ai autre chose \xE0 faire que de chasser ces
-              bestioles"
+          - answerText: 
+            characterReactionText:
+              text: 
+              duration: 0
             consequencesIfChoosed:
               modificationsBool: []
               modificationsString: []
