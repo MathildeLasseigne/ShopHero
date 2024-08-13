@@ -13,12 +13,11 @@ public class MainGameManager : MonoBehaviour
 
     public ForgingMinigameController forgingMinigameController;
 
-    public Data DynamicData = new Data();
 
     [SerializeField] TextMeshProUGUI textScore;
 
 
-    [SerializeField] private int currentScore = 0;
+    [SerializeField] private int currentScore = 0; //Score for the current game interaction, influence other rewards like gold and favorability
 
     [SerializeField] GameObject Intro;
     [SerializeField] Animator animatorLogo;
@@ -35,7 +34,6 @@ public class MainGameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DynamicData.SetSelfAsMain();
     }
 
 
@@ -54,7 +52,7 @@ public class MainGameManager : MonoBehaviour
         Intro.SetActive(false);
         yield return new WaitForSeconds(3f);
 
-        Character character = DynamicData.allCharactersList[UnityEngine.Random.Range(0, DynamicData.allCharactersList.Count - 1)]; // Choose character at random
+        Character character = GameData.Instance.DynamicData.allCharactersList[UnityEngine.Random.Range(0, GameData.Instance.DynamicData.allCharactersList.Count - 1)]; // Choose character at random
         forgingMinigameController.Init(character);
         forgingMinigameController.StartMinigame();
     }
@@ -73,7 +71,7 @@ public class MainGameManager : MonoBehaviour
     public List<Ingredient> GetAllOwnedIngredients()
     {
         List<Ingredient> inventory = new List<Ingredient>();
-        foreach (Ingredient ingredient in DynamicData.AllIngredients)
+        foreach (Ingredient ingredient in GameData.Instance.ingredientsList)
         {
             if(ingredient.nbInInventory >  0)
                 inventory.Add(ingredient);
@@ -83,7 +81,7 @@ public class MainGameManager : MonoBehaviour
 
     void AddGold(int gold)
     {
-        DynamicData.Gold += gold;
+        GameData.Instance.DynamicData.Gold += gold;
     }
 
     public void NextStep()
@@ -92,23 +90,4 @@ public class MainGameManager : MonoBehaviour
     }
 
 
-}
-
-[Serializable]
-public class Data
-{
-    public static Data mainInstance;
-
-    public List<Ingredient> AllIngredients;
-
-    public List<Character> allCharactersList = new List<Character>();
-
-    public Config mainConfig;
-
-    public int Gold = 0;
-
-    public void SetSelfAsMain()
-    {
-        mainInstance = this;
-    }
 }

@@ -2415,6 +2415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1872046608}
   - component: {fileID: 1872046609}
+  - component: {fileID: 1872046610}
   m_Layer: 0
   m_Name: MainController
   m_TagString: Untagged
@@ -2452,329 +2453,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundBoard: {fileID: 236578869}
   forgingMinigameController: {fileID: 5161326016583601848}
-  DynamicData:
-    AllIngredients:
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    - nameForEditor: 
-      ingredientData:
-        uniqueID: 
-        nameIngredient: 
-        description: 
-        goldValue: 0
-        recipeSpritePath: 
-        descriptionSpritePath: 
-        merchandSpritePath: 
-        ingredientValue:
-          <rougeValue>k__BackingField: 0
-          <bleuValue>k__BackingField: 0
-          <jauneValue>k__BackingField: 0
-      nbInInventory: 0
-      recipeSprite: {fileID: 0}
-      descriptionSprite: {fileID: 0}
-      merchandSprite: {fileID: 0}
-    allCharactersList:
-    - nameForEditor: 
-      _CharacterSprite: {fileID: 0}
-      DialoguesList: []
-      _characterData:
-        characterName: 
-        reputationVarName: 
-        characterSpritePath: 
-        interventionList: []
-    mainConfig: {fileID: 11400000, guid: 8b83ccb32fda57648827201e7f545a29, type: 2}
-    Gold: 0
   textScore: {fileID: 448177362}
   currentScore: 0
   Intro: {fileID: 1128741123}
   animatorLogo: {fileID: 1648472724}
+--- !u!114 &1872046610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872046607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161ff3f4f072b9a41b6dd501867c8d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886714112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2784,6 +2478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1886714113}
+  - component: {fileID: 1886714114}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2810,6 +2505,18 @@ Transform:
   - {fileID: 1382679991}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1886714114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886714112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161ff3f4f072b9a41b6dd501867c8d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1936127310
 GameObject:
   m_ObjectHideFlags: 0

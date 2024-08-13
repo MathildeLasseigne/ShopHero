@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Newtonsoft.Json;
 
 public class LoadingManager : MonoBehaviour
 {
@@ -28,6 +27,7 @@ public class LoadingManager : MonoBehaviour
 
     [SerializeField] string characterSpriteFolderPath = "Sprites/Characters/";
 
+    [SerializeField] string DialogueVariablesNamesDataPath = "DialogueVariablesNames";
 
 
 
@@ -49,6 +49,9 @@ public class LoadingManager : MonoBehaviour
     [ContextMenu("Load")]
     public void Load()
     {
-        GameData.Load(null, JsonDataPath, IngredientDataPath, IngredientSpriteFolderPath, CharactersDataFolderPath, characterSpriteFolderPath);
+        GameData.Load(null, JsonDataPath, 
+            IngredientDataPath, IngredientSpriteFolderPath, 
+            CharactersDataFolderPath, characterSpriteFolderPath, 
+            DialogueVariablesNamesDataPath);
     }
 }

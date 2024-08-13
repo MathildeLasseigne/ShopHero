@@ -5,8 +5,13 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 
+//Hold and load the game data
 public class GameData : MonoBehaviour
 {
+
+    public static GameData Instance;
+
+    public Data DynamicData = new Data();
 
 
     public List<Character> characterList;
@@ -14,8 +19,32 @@ public class GameData : MonoBehaviour
     public List<Ingredient> ingredientsList;
 
 
+    //Persistent Data TODO bring from the Data class in MainGameManager class
+
+
+    //TODO system variables
+
+
+
+    private void Awake()
+    {
+        //Singleton
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DynamicData.SetSelfAsMain();
+    }
+
+
+
+
+
+
     public void Load(Action callback, string jsonDataPath, string ingredientDataPath, string ingredientSpriteFolderPath, 
-        string charactersDataFolderPath, string characterSpriteFolderPath)
+        string charactersDataFolderPath, string characterSpriteFolderPath, string dialogueVarsNamesDataPath)
     {
 
         //Ingredients
@@ -35,6 +64,8 @@ public class GameData : MonoBehaviour
             ing.LoadIngredient(ingredientSpriteFolderPath);
             ingredientsList.Add(ing);
         }
+
+        Debug.Log("[GameData.Load] Ingredients loaded from JSON");
 
         //Characters
 
@@ -58,7 +89,83 @@ public class GameData : MonoBehaviour
             characterList.Add(newCharacter);
         }
 
+        Debug.Log("[GameData.Load] Characters loaded from JSON");
+
+        //Dialogue system variables names
+
+        string pathDialogueVars = jsonDataPath + dialogueVarsNamesDataPath;
+        TextAsset diagVarsNamesObj = Resources.Load(pathIngredients) as TextAsset;
+        if (diagVarsNamesObj == null)
+        {
+            Debug.LogError("[GameData] Could not Load Dialogue system variables names Json at path : " + pathDialogueVars);
+            return;
+        }
+        DialogueSystemVariablesData diagVarsData = new DialogueSystemVariablesData();
+        diagVarsData = JsonConvert.DeserializeObject<DialogueSystemVariablesData>(diagVarsNamesObj.text);
+
+        DynamicData.systemVariables = new DialogueSystemVariables(diagVarsData);
 
         callback?.Invoke();
     }
+
+
+    #region Debug
+
+    public void DebugAddRandomIngredientsToInventory()
+    {
+        if (ingredientsList == null)
+        {
+            Debug.Log("[GameData.DebugAddRandomIngredientsInInventory] Ingredients not loaded");
+        } else
+        {
+            foreach (Ingredient ingredient in GameData.Instance.ingredientsList)
+            {
+                int randomValue = UnityEngine.Random.Range(0, 100);
+                if(randomValue < 30)
+                {
+                    ingredient.AddToInventory();
+                }
+            }
+        }
+    }
+
+
+    #endregion
+
+
+
+}
+
+
+
+[Serializable]
+public class Data //Persistent data
+{
+    public static Data mainInstance;
+
+    public List<Ingredient> AllIngredients;
+
+    public List<Character> allCharactersList = new List<Character>();
+
+    public List<string> archivedInterventionsIds = new List<string>(); //The list of the id of all interventions already played
+
+    public DialogueSystemVariables systemVariables;
+
+
+
+    public Config mainConfig;
+
+    public int Gold = 0;
+
+    public void SetSelfAsMain()
+    {
+        mainInstance = this;
+    }
+}
+
+
+public class DataDetail
+{
+    public const int SCORE_INCREASE_SIMPLE = 10;
+    public const int SCORE_INCREASE_DOUBLE = 20;
 }

@@ -27,7 +27,13 @@ public class Character
     public void Load(string characterSpriteFolderPath)
     {
         _CharacterSprite = Resources.Load<Sprite>(Path.Combine(characterSpriteFolderPath, _characterData.characterSpritePath));
+        //TODO connect dialogue
 
+    }
+
+    public void LoadNextInteraction(List<string> archivedInterventionsIds)
+    {
+        //TODO, load the interaction for this character, don't use archived interventions
     }
 
     public Speech GetNextDialogueSpeech()
